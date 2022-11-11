@@ -5,7 +5,7 @@ import Myself from "../assets/myself.jpg";
 
 const HeaderStyled = styled.main`
   position: relative;
-  color: white;
+  color: black;
 `;
 
 const Wrapper = styled.div`

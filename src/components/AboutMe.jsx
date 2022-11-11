@@ -5,7 +5,7 @@ const AbouteMeStyled = styled.section`
 `;
 const AboutMe = () => {
   return (
-    <AbouteMeStyled>
+    <AbouteMeStyled id="about-me">
       <h2>
         Self-taught quick learner, happily looking forward to further develop
         new skills and gain more valuable experience as developer.

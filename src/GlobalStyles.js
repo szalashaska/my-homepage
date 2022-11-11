@@ -17,10 +17,16 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
   padding: 0;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 img {
   display: block;
   max-width: 100%;
 }
+
 body {
     font-family: var(--ff-body)
 }
@@ -55,4 +61,10 @@ export const Paragraph = styled.p`
   font-size: clamp(0.8rem, 0.6737rem + 0.5614vw, 1.2rem);
   letter-spacing: 0px;
   margin-bottom: ${({ mb }) => mb || "0.4em"};
+`;
+
+export const LinkStyled = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 0.6737rem + 0.5614vw, 1.2rem);
 `;

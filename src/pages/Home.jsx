@@ -1,4 +1,3 @@
-import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import AboutMe from "../components/AboutMe";
 import Contacts from "../components/Contacts";
@@ -14,14 +13,12 @@ const HomeStyled = styled.main`
 const Home = () => {
   return (
     <>
+      <Navbar />
       <HomeStyled>
-        <BrowserRouter>
-          <Navbar />
-          <Header />
-          <AboutMe />
-          <Projects />
-          <Contacts />
-        </BrowserRouter>
+        <Header />
+        <AboutMe />
+        <Projects />
+        <Contacts />
       </HomeStyled>
     </>
   );
