@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { Heading1 } from "../GlobalStyles";
-import Myself from "../assets/myself.jpg";
+import myself from "../assets/myself.jpg";
 
 const HeaderStyled = styled.main`
   position: relative;
   color: black;
 `;
 
-const Wrapper = styled.div`
+const Container = styled.div`
   position: relative;
   z-index: 2;
   padding: 5rem 1rem;
@@ -41,18 +41,18 @@ const Header = () => {
   return (
     <HeaderStyled>
       <AnimatedBackground />
-      <Wrapper>
+      <Container>
         <Link
           href="https://www.linkedin.com/in/kamil-petryniak/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={Myself} />
+          <Image src={myself} />
         </Link>
         <Heading1 bold align="center">
-          Hi! I' am Kamil Petryniak
+          Hi! I am Kamil Petryniak
         </Heading1>
-      </Wrapper>
+      </Container>
     </HeaderStyled>
   );
 };

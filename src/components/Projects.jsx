@@ -1,23 +1,63 @@
 import styled from "styled-components";
+import {
+  Column,
+  Heading1,
+  Heading2,
+  Paragraph,
+  Section,
+} from "../GlobalStyles";
+import verical from "../assets/my-vertical.PNG";
+import memory from "../assets/memory.PNG";
 
-const ProjectsStyled = styled.section`
-  height: 100vh;
+const ProjectsStyled = styled(Section)``;
+
+const Card = styled.div`
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 850px) {
+    width: 50%;
+  }
+`;
+const Image = styled.img`
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  object-fit: cover;
+  overflow: hidden;
 `;
 
 const Projects = () => {
   return (
     <ProjectsStyled id="projects">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis est
-      dignissimos doloremque deserunt optio quia minima blanditiis error,
-      pariatur sit magni culpa dolorem, facere soluta provident nostrum!
-      Incidunt quos in ratione, blanditiis corporis perferendis veniam, tenetur
-      aliquid nostrum, soluta officia modi quia repellat vero quod quisquam
-      tempora doloribus eaque! Maxime, dolores vero unde fugiat optio harum
-      excepturi commodi deserunt obcaecati quibusdam aliquid sapiente iusto sit
-      quidem dignissimos, rem, impedit recusandae eos eum quasi voluptates rerum
-      delectus aliquam ab? Iusto, adipisci ullam nobis eius rerum eos inventore
-      culpa similique aliquam sed obcaecati quia laborum deleniti labore iste
-      provident cupiditate recusandae rem!
+      <Column>
+        <Heading2>Some of my recent projects</Heading2>
+        <Card>
+          <Image src={verical} />
+          <Heading2>My Vertical World</Heading2>
+          <Paragraph>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Consequatur accusantium, laboriosam error praesentium esse minima
+            odio dicta voluptas commodi corrupti dolores impedit beatae aliquid
+            omnis tempore amet quae ipsum vitae!
+          </Paragraph>
+        </Card>
+
+        <Card>
+          <Image src={memory} />
+          <Heading2>Memory</Heading2>
+          <Paragraph>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Consequatur accusantium, laboriosam error praesentium esse minima
+            odio dicta voluptas commodi corrupti dolores impedit beatae aliquid
+            omnis tempore amet quae ipsum vitae!
+          </Paragraph>
+        </Card>
+      </Column>
+
+      <Column>
+        <Heading1>Projects</Heading1>
+      </Column>
     </ProjectsStyled>
   );
 };
