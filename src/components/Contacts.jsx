@@ -16,6 +16,7 @@ const GithubIco = styled(Github)`
     transform: scale(1.2);
   }
 `;
+
 const LinkedinIco = styled(Linkedin)`
   fill: white;
   margin: 1rem;

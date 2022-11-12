@@ -126,7 +126,7 @@ const Item = styled.li`
     transition: width 0.4s ease-out;
   }
   &:hover::after,
-  &:focus-within::after {
+  &:focus::after {
     width: 100%;
   }
 `;

@@ -9,7 +9,7 @@ const projectCards = [
     id: 1,
     img: verical,
     heading: "My Vertical World",
-    text: "Browser based platform for climbers created with Django on the backend and React on the frontend. With use of Canvas API lets you draw climbing route path on the wall image and than add its location on map provided by OpenLayers API. Frontend styling with Styled Components.",
+    text: "Browser based platform for climbers created with Django on the backend and React on the frontend. With use of Canvas API you can draw climbing route path on the wall image and than add its location on map provided by OpenLayers API. Frontend styling with Styled Components.",
     link: "https://my-vertical-world-railway-production.up.railway.app/",
     github: "https://github.com/szalashaska/my-vertical-world",
   },

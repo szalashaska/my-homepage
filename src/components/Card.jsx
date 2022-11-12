@@ -1,5 +1,28 @@
 import styled from "styled-components";
 import { Heading2, LinkStyled, Paragraph } from "../GlobalStyles";
+import { ReactComponent as Github } from "../assets/github.svg";
+import { ReactComponent as Arrow } from "../assets/arrow-right.svg";
+
+const GithubIco = styled(Github)`
+  fill: white;
+  margin-left: 1rem;
+  transition: all 0.3s ease-in;
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+`;
+
+const ArrowIco = styled(Arrow)`
+  fill: white;
+  height: 24px;
+  margin-left: 1rem;
+  transition: all 0.3s ease-in;
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+`;
 
 const CardStyled = styled.div`
   background: linear-gradient(45deg, #3f3131, black, #2b051a);
@@ -45,9 +68,16 @@ const LinkContainer = styled.div`
 `;
 
 const Link = styled(LinkStyled)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 0.25rem;
   &:hover {
     color: #f13a3a;
     letter-spacing: 0.25px;
+  }
+  &:hover svg {
+    fill: #f13a3a;
   }
 `;
 
@@ -59,10 +89,12 @@ const Card = ({ img, heading, text, link, github }) => {
       <Paragraph>{text}</Paragraph>
       <LinkContainer>
         <Link href={link} target="_blank" rel="noopener noreferrer">
-          Check out live
+          <>Check out live</>
+          <ArrowIco />
         </Link>
         <Link href={github} target="_blank" rel="noopener noreferrer">
           See on github
+          <GithubIco />
         </Link>
       </LinkContainer>
     </CardStyled>
