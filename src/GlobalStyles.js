@@ -75,6 +75,7 @@ export const LinkStyled = styled.a`
   color: white;
   text-decoration: none;
   font-size: clamp(0.8rem, 0.6737rem + 0.5614vw, 1.2rem);
+  transition: all 0.3s ease-in;
 `;
 
 export const Section = styled.section`
@@ -86,7 +87,7 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media screen and (min-width: 850px) {
+  @media screen and (min-width: 900px) {
     min-height: 40rem;
     flex-direction: row;
   }
@@ -98,7 +99,7 @@ export const Column = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  @media screen and (min-width: 850px) {
+  @media screen and (min-width: 900px) {
     width: 50%;
   }
 `;

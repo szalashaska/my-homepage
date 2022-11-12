@@ -87,16 +87,16 @@ const List = styled.ul`
       bottom: 0;
       left: 0;
       background: linear-gradient(
-        -45deg,
-        black,
-        black,
-        black,
-        rgba(255, 92, 51, 0.6),
-        rgba(255, 102, 179, 0.6),
-        rgba(204, 204, 255, 0.6),
-        rgba(179, 255, 255, 0.6),
-        rgba(128, 255, 128, 0.2),
-        rgba(255, 255, 51, 0.2)
+        45deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8),
+        rgba(255, 92, 51, 0.45),
+        rgba(255, 102, 179, 0.5),
+        rgba(179, 255, 255, 0.8),
+        rgba(128, 255, 128, 0.8),
+        rgba(255, 255, 51, 0.8)
       );
       z-index: -1;
       transition: opacity 0.5s linear;
@@ -134,8 +134,8 @@ const Item = styled.li`
 const Link = styled(LinkStyled)`
   padding: 1rem 1.5rem;
   font-weight: 700;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-  transition: text-shadow 0.3s ease-in;
+  /* text-shadow: 0 0 3px rgba(0, 0, 0, 1); */
+  text-shadow: 0 0 10px rgb(0, 0, 0);
 `;
 
 const Navbar = () => {

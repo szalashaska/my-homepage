@@ -44,7 +44,7 @@ const AnimatedBackground = () => {
         // To unify animations frame for fast and slow machines, we use delta time, interval etc.
         this.interval = 1000 / 60; // 60 frames per secound
         this.timer = 0;
-        this.cellSize = 15;
+        this.cellSize = 16;
         this.#createGradient();
         this.#ctx.strokeStyle = this.gradient;
         this.radius = 0;
