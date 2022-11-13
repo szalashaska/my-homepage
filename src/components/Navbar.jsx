@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { LinkStyled } from "../GlobalStyles";
+import myself from "../assets/myself.jpg";
 
 const navbarContent = [
   { id: 1, title: "About me", link: "#about-me" },
@@ -138,11 +139,38 @@ const Link = styled(LinkStyled)`
   text-shadow: 0 0 10px rgb(0, 0, 0);
 `;
 
+const ImageItem = styled.li`
+  width: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+  transform: scale(0);
+  &.scrolled {
+    transform: scale(1);
+    width: auto;
+    padding-inline: 1.5rem;
+  }
+`;
+
+const Image = styled.img`
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 2rem;
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 25px rgba(225, 185, 250, 0.65);
+  }
+`;
+
 const Navbar = () => {
   const navbarRef = useRef(null);
+  const imageRef = useRef(null);
 
   const handleScroll = () => {
     navbarRef.current.classList.toggle("scrolled", window.scrollY > 0);
+    imageRef.current.classList.toggle("scrolled", window.scrollY > 0);
   };
 
   useEffect(() => {
@@ -153,6 +181,9 @@ const Navbar = () => {
   return (
     <NavbarStyled>
       <List ref={navbarRef}>
+        <ImageItem ref={imageRef} onClick={() => window.scrollTo(0, 0)}>
+          <Image src={myself} />
+        </ImageItem>
         {navbarContent.map((item) => (
           <Item key={item.id}>
             <Link href={item.link}>{item.title} </Link>
