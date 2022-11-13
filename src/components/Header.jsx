@@ -43,8 +43,7 @@ const Header = () => {
       <AnimatedBackground />
       <Container>
         <Link
-          // href="https://www.linkedin.com/in/kamil-petryniak/"
-          href="#"
+          href="https://www.linkedin.com/in/kamil-petryniak/"
           target="_blank"
           rel="noopener noreferrer"
         >
