@@ -4,7 +4,7 @@ import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Arrow } from "../assets/arrow-right.svg";
 
 const GithubIco = styled(Github)`
-  fill: white;
+  fill: var(--font-clr);
   margin-left: 1rem;
   transition: all 0.3s ease-in;
   &:hover,
@@ -14,7 +14,7 @@ const GithubIco = styled(Github)`
 `;
 
 const ArrowIco = styled(Arrow)`
-  fill: white;
+  fill: var(--font-clr);
   height: 24px;
   margin-left: 1rem;
   transition: all 0.3s ease-in;
@@ -25,7 +25,7 @@ const ArrowIco = styled(Arrow)`
 `;
 
 const CardStyled = styled.div`
-  background: linear-gradient(45deg, #3f3131, black, #2b051a);
+  background: linear-gradient(45deg, #3f3131, var(--bg-clr), #2b051a);
   padding: 2rem 1.5rem 5em 1.5rem;
   width: 100%;
   border-radius: 20px;

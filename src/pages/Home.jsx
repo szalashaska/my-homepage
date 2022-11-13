@@ -6,8 +6,7 @@ import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
 
 const HomeStyled = styled.main`
-  color: white;
-  background: black;
+  background: var(--bg-clr);
 `;
 
 const Home = () => {

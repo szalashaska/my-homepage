@@ -40,12 +40,7 @@ const List = styled.ul`
       rgba(255, 255, 51, 0.2),
       rgba(204, 204, 255, 0.3),
       rgba(255, 92, 51, 0.3),
-      black,
-      black,
-      black,
-      black,
-      black,
-      black,
+      var(--bg-clr) 25% 75%,
       rgba(255, 92, 51, 0.3),
       rgba(204, 204, 255, 0.3),
       rgba(255, 255, 51, 0.2)
@@ -66,10 +61,7 @@ const List = styled.ul`
     &::after {
       background: linear-gradient(
         -45deg,
-        black,
-        black,
-        black,
-        black,
+        var(--bg-clr) 0% 30%,
         rgba(255, 92, 51, 0.3),
         rgba(255, 102, 179, 0.3),
         rgba(204, 204, 255, 0.3),
@@ -89,10 +81,7 @@ const List = styled.ul`
       left: 0;
       background: linear-gradient(
         45deg,
-        rgba(0, 0, 0, 0.4),
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.8),
+        var(--bg-clr) 0% 40%,
         rgba(255, 92, 51, 0.45),
         rgba(255, 102, 179, 0.5),
         rgba(179, 255, 255, 0.8),
@@ -123,7 +112,7 @@ const Item = styled.li`
     height: 1.5px;
     width: 0;
     bottom: -50%;
-    background-color: white;
+    background-color: var(--font-clr);
     transition: width 0.4s ease-out;
   }
   &:hover::after,
@@ -133,10 +122,13 @@ const Item = styled.li`
 `;
 
 const Link = styled(LinkStyled)`
-  padding: 1rem 1.5rem;
+  display: block;
+  padding: 1rem;
   font-weight: 700;
-  /* text-shadow: 0 0 3px rgba(0, 0, 0, 1); */
-  text-shadow: 0 0 10px rgb(0, 0, 0);
+  text-shadow: 0 0 10px var(--bg-clr);
+  @media screen and (min-width: 600px) {
+    padding: 1rem 1.5rem;
+  }
 `;
 
 const ImageItem = styled.li`
@@ -147,7 +139,12 @@ const ImageItem = styled.li`
   &.scrolled {
     transform: scale(1);
     width: auto;
-    padding-inline: 1.5rem;
+    padding-right: 1rem;
+  }
+  @media screen and (min-width: 600px) {
+    &.scrolled {
+      padding: 1rem 1.5rem;
+    }
   }
 `;
 

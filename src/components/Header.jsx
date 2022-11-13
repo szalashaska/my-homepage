@@ -5,7 +5,6 @@ import myself from "../assets/myself.jpg";
 
 const HeaderStyled = styled.main`
   position: relative;
-  color: black;
 `;
 
 const Container = styled.div`

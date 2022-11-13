@@ -5,9 +5,16 @@ const GlobalStyles = createGlobalStyle`
 /* Variables */
 :root {
   
-  --ff-body:  'Exo 2', sans-serif;
+  --ff-body: 'Exo 2', sans-serif;
   --max-vw: 93.75rem;
   --min-vw: 22.5rem;
+
+  /* Theme values */
+  --font-clr: white;
+  --bg-clr: black;
+
+  /* --font-clr: black;
+  --bg-clr: white; */
 }
 /* Reset settings */
 *,
@@ -37,8 +44,7 @@ export default GlobalStyles;
 export const Heading1 = styled.h1`
   margin-bottom: ${({ mb }) => mb || "0.4em"};
   text-align: ${({ align }) => align || "left"};
-  /* color: ${({ light }) => (light ? "white" : "black")}; */
-  color: white;
+  color: var(--font-clr);
   font-weight: ${({ bold }) => (bold ? 900 : 600)};
   font-size: clamp(2rem, 1.6842rem + 1.4035vw, 3rem);
   letter-spacing: -2px;
@@ -47,8 +53,7 @@ export const Heading2 = styled.h2`
   margin-bottom: ${({ mb }) => mb || "0.4em"};
   text-align: ${({ align }) => align || "left"};
   font-weight: ${({ bold }) => (bold ? 800 : 600)};
-  /* color: ${({ light }) => (light ? "white" : "black")}; */
-  color: white;
+  color: var(--font-clr);
   font-size: clamp(1.5rem, 1.3421rem + 0.7018vw, 2rem);
   letter-spacing: -1.8px;
 `;
@@ -57,7 +62,6 @@ export const Heading3 = styled.h3`
   margin-bottom: ${({ mb }) => mb || "0.4em"};
   text-align: ${({ align }) => align || "left"};
   font-weight: ${({ bold }) => (bold ? 900 : 500)};
-  /* color: ${({ light }) => (light ? "white" : "black")}; */
   font-size: clamp(1.2rem, 1.1053rem + 0.4211vw, 1.5rem);
 `;
 
@@ -65,14 +69,13 @@ export const Paragraph = styled.p`
   margin-bottom: ${({ mb }) => mb || "0.6em"};
   font-weight: ${({ bold }) => (bold ? 700 : 300)};
   text-align: ${({ align }) => align || "left"};
-  /* color: ${({ light }) => (light ? "white" : "black")}; */
-  color: white;
+  color: var(--font-clr);
   font-size: clamp(0.8rem, 0.6737rem + 0.5614vw, 1.2rem);
   letter-spacing: 0px;
 `;
 
 export const LinkStyled = styled.a`
-  color: white;
+  color: var(--font-clr);
   text-decoration: none;
   font-size: clamp(0.8rem, 0.6737rem + 0.5614vw, 1.2rem);
   transition: all 0.3s ease-in;

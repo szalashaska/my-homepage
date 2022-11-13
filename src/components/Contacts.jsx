@@ -8,7 +8,7 @@ import { ReactComponent as Download } from "../assets/download.svg";
 const ContactsStyled = styled(Section)``;
 
 const GithubIco = styled(Github)`
-  fill: white;
+  fill: var(--font-clr);
   margin: 1rem;
   transition: all 0.3s ease-in;
   &:hover,
@@ -18,7 +18,7 @@ const GithubIco = styled(Github)`
 `;
 
 const LinkedinIco = styled(Linkedin)`
-  fill: white;
+  fill: var(--font-clr);
   margin: 1rem;
   transition: all 0.3s ease-in;
 
@@ -29,7 +29,7 @@ const LinkedinIco = styled(Linkedin)`
 `;
 
 const EmailIco = styled(Email)`
-  fill: white;
+  fill: var(--font-clr);
   margin: 1rem;
   transition: all 0.3s ease-in;
 
@@ -40,7 +40,7 @@ const EmailIco = styled(Email)`
 `;
 
 const DownloadIco = styled(Download)`
-  fill: white;
+  fill: var(--font-clr);
   margin: 1rem;
   transition: all 0.3s ease-in;
 
@@ -75,13 +75,13 @@ const Info = styled.div`
   text-align: center;
   padding: 1rem;
   border-radius: 5px;
-  color: black;
+  color: var(--bg-clr);
   position: absolute;
   min-width: 18ch;
   top: 90%;
   right: 50%;
   transform: translateX(50%);
-  background: white;
+  background: var(--font-clr);
   box-shadow: 0 0 10px rgba(230, 202, 202, 0.8);
   &::before {
     content: " ";
@@ -91,7 +91,7 @@ const Info = styled.div`
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent white transparent;
+    border-color: transparent transparent var(--font-clr) transparent;
   }
 `;
 
