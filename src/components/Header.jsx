@@ -29,6 +29,8 @@ const Image = styled.img`
   border-radius: 50%;
   overflow: hidden;
   height: 18rem;
+  box-shadow: 0 0 10px rgba(79, 70, 83, 0.65);
+
   transition: box-shadow 0.5s ease-out;
   &:hover,
   &:focus {

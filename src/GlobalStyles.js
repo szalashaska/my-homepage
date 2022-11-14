@@ -37,6 +37,12 @@ img {
 body {
     font-family: var(--ff-body)
 }
+
+/* class responsible for bright theme */
+.bright {
+  --font-clr: black;
+  --bg-clr: white;
+}
 `;
 
 export default GlobalStyles;

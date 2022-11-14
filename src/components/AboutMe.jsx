@@ -56,7 +56,7 @@ const AboutMe = () => {
 
           <Paragraph>
             I was always interested in new technologies and computer science. I
-            decided to give it a try and took Harvard's CS50 course. After few
+            decided to give it a try and took Harvard's CS50 course. After a few
             courses, lots of tutorials and first commercial experience I know
             that it was the best decision I could made.
           </Paragraph>

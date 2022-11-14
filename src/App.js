@@ -1,3 +1,4 @@
+import { ThemeProvider } from "./contexts/ThemeContext";
 import GlobalStyles from "./GlobalStyles";
 import Home from "./pages/Home";
 
@@ -5,7 +6,9 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Home />
+      <ThemeProvider>
+        <Home />
+      </ThemeProvider>
     </>
   );
 }

@@ -1,5 +1,24 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useContext, useEffect, useRef } from "react";
 import styled from "styled-components";
+import ThemeContext from "../contexts/ThemeContext";
+
+const darkGradient = [
+  { stop: "0.1", color: "#ff5c33" },
+  { stop: "0.2", color: "#ff66b3" },
+  { stop: "0.4", color: "#ccccff" },
+  { stop: "0.6", color: "#b3ffff" },
+  { stop: "0.8", color: "#80ff80" },
+  { stop: "0.9", color: "#ffff33" },
+];
+
+const brightGradient = [
+  { stop: "0.1", color: "#f132b8" },
+  { stop: "0.2", color: "#2bff00" },
+  { stop: "0.4", color: "#2d2df5" },
+  { stop: "0.6", color: "#1d04f8" },
+  { stop: "0.8", color: "#fc10b5" },
+  { stop: "0.9", color: "#ff0909" },
+];
 
 const AnimatedBackgroundStyled = styled.canvas`
   position: absolute;
@@ -17,6 +36,8 @@ const AnimatedBackground = () => {
     y: 0,
   });
 
+  const { theme } = useContext(ThemeContext);
+
   const handleMouseMove = useCallback(
     (e) => {
       mouseRef.current.x = e.x;
@@ -24,6 +45,8 @@ const AnimatedBackground = () => {
     },
     [mouseRef]
   );
+
+  const colorGradient = theme === "dark" ? darkGradient : brightGradient;
 
   const initiateAnimation = useCallback(() => {
     if (!canvasRef.current) return;
@@ -83,12 +106,9 @@ const AnimatedBackground = () => {
           this.#width,
           this.#height
         );
-        this.gradient.addColorStop("0.1", "#ff5c33");
-        this.gradient.addColorStop("0.2", "#ff66b3");
-        this.gradient.addColorStop("0.4", "#ccccff");
-        this.gradient.addColorStop("0.6", "#b3ffff");
-        this.gradient.addColorStop("0.8", "#80ff80");
-        this.gradient.addColorStop("0.9", "#ffff33");
+        colorGradient.forEach((item) => {
+          this.gradient.addColorStop(item.stop, item.color);
+        });
       }
 
       // timeStamp here is a value that is returned from requestAnimationFrame
@@ -135,7 +155,7 @@ const AnimatedBackground = () => {
 
     const flowField = new FlowFieldEffect(ctx, canvas.width, canvas.height);
     flowField.animate(0);
-  }, []);
+  }, [colorGradient]);
 
   useEffect(() => {
     initiateAnimation();

@@ -25,13 +25,13 @@ const ArrowIco = styled(Arrow)`
 `;
 
 const CardStyled = styled.div`
-  background: linear-gradient(45deg, #3f3131, var(--bg-clr), #2b051a);
+  background: linear-gradient(45deg, #312828, var(--bg-clr) 15% 85%, #380923);
   padding: 2rem 1.5rem 5em 1.5rem;
   width: 100%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 15px #3f3131;
+  box-shadow: 0 0 20px #867272;
   position: relative;
   &:hover a {
     transform: scale(1.05);
