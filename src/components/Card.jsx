@@ -3,7 +3,7 @@ import { Heading2, LinkStyled, Paragraph } from "../GlobalStyles";
 import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Arrow } from "../assets/arrow-right.svg";
 
-const GithubIco = styled(Github)`
+const Icon = styled.svg`
   fill: var(--font-clr);
   margin-left: 1rem;
   transition: all 0.3s ease-in;
@@ -13,15 +13,10 @@ const GithubIco = styled(Github)`
   }
 `;
 
+const GithubIco = styled(Github)``;
+
 const ArrowIco = styled(Arrow)`
-  fill: var(--font-clr);
   height: 24px;
-  margin-left: 1rem;
-  transition: all 0.3s ease-in;
-  &:hover,
-  &:focus {
-    transform: scale(1.2);
-  }
 `;
 
 const CardStyled = styled.div`
@@ -90,11 +85,11 @@ const Card = ({ img, heading, text, link, github }) => {
       <LinkContainer>
         <Link href={link} target="_blank" rel="noopener noreferrer">
           <>Check out live</>
-          <ArrowIco />
+          <Icon as={ArrowIco} />
         </Link>
         <Link href={github} target="_blank" rel="noopener noreferrer">
           See on github
-          <GithubIco />
+          <Icon as={GithubIco} />
         </Link>
       </LinkContainer>
     </CardStyled>

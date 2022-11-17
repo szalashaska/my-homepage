@@ -15,7 +15,7 @@ const Icon = styled.svg`
   &:focus {
     transform: scale(1.2);
   }
-`
+`;
 
 const GithubIco = styled(Github)``;
 
@@ -96,7 +96,7 @@ const Contacts = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Icon as={GithubIco}/>
+          <Icon as={GithubIco} />
           <Info>Github account</Info>
         </Link>
 
