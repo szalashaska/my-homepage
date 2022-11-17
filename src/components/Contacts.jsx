@@ -7,7 +7,7 @@ import { ReactComponent as Download } from "../assets/download.svg";
 
 const ContactsStyled = styled(Section)``;
 
-const GithubIco = styled(Github)`
+const Icon = styled.svg`
   fill: var(--font-clr);
   margin: 1rem;
   transition: all 0.3s ease-in;
@@ -15,40 +15,15 @@ const GithubIco = styled(Github)`
   &:focus {
     transform: scale(1.2);
   }
-`;
+`
 
-const LinkedinIco = styled(Linkedin)`
-  fill: var(--font-clr);
-  margin: 1rem;
-  transition: all 0.3s ease-in;
+const GithubIco = styled(Github)``;
 
-  &:hover,
-  &:focus {
-    transform: scale(1.2);
-  }
-`;
+const LinkedinIco = styled(Linkedin)``;
 
-const EmailIco = styled(Email)`
-  fill: var(--font-clr);
-  margin: 1rem;
-  transition: all 0.3s ease-in;
+const EmailIco = styled(Email)``;
 
-  &:hover,
-  &:focus {
-    transform: scale(1.2);
-  }
-`;
-
-const DownloadIco = styled(Download)`
-  fill: var(--font-clr);
-  margin: 1rem;
-  transition: all 0.3s ease-in;
-
-  &:hover,
-  &:focus {
-    transform: scale(1.2);
-  }
-`;
+const DownloadIco = styled(Download)``;
 
 const Link = styled(LinkStyled)`
   position: relative;
@@ -121,7 +96,7 @@ const Contacts = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <GithubIco />
+          <Icon as={GithubIco}/>
           <Info>Github account</Info>
         </Link>
 
@@ -130,7 +105,7 @@ const Contacts = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <LinkedinIco />
+          <Icon as={LinkedinIco} />
           <Info>Linkedin account</Info>
         </Link>
 
@@ -139,12 +114,12 @@ const Contacts = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <EmailIco />
+          <Icon as={EmailIco} />
           <Info>Email me</Info>
         </Link>
 
         <Button type="button" onClick={handleButtonClick}>
-          <DownloadIco />
+          <Icon as={DownloadIco} />
           <Info>Download my CV</Info>
         </Button>
       </Column>
