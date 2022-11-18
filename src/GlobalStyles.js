@@ -109,7 +109,7 @@ export const Column = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  min-height: 15rem;
+  min-height: 12rem;
   transition: all 1s;
   @media screen and (min-width: 900px) {
     width: 50%;
