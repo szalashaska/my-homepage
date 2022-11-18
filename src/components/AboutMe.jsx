@@ -11,6 +11,7 @@ import {
 } from "../GlobalStyles";
 
 import harvard from "../assets/harvard.png";
+import useInView from "./useInView";
 
 const AbouteMeStyled = styled(Section)``;
 
@@ -35,12 +36,14 @@ const LinkWrapper = styled(LinkStyled)`
 `;
 
 const AboutMe = () => {
+  const { inView, ref: myRef } = useInView();
+
   return (
-    <AbouteMeStyled id="about-me">
-      <Column>
+    <AbouteMeStyled id="about-me" ref={myRef}>
+      <Column inView={inView}>
         <Heading1>About me</Heading1>
       </Column>
-      <Column>
+      <Column inView={inView}>
         <Wrapper>
           <Heading2 mb="2rem">
             Self-taught quick learner looking forward to further develop new

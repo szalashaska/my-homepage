@@ -4,6 +4,7 @@ import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Linkedin } from "../assets/linkedin.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Download } from "../assets/download.svg";
+import useInView from "./useInView";
 
 const ContactsStyled = styled(Section)``;
 
@@ -71,6 +72,8 @@ const Info = styled.div`
 `;
 
 const Contacts = () => {
+  const { inView, ref: myRef } = useInView();
+
   const handleButtonClick = () => {
     fetch("Petryniak_Kamil_CV.pdf").then((response) => {
       response.blob().then((blob) => {
@@ -86,11 +89,11 @@ const Contacts = () => {
   };
 
   return (
-    <ContactsStyled id="contacts">
-      <Column>
+    <ContactsStyled id="contacts" ref={myRef}>
+      <Column inView={inView}>
         <Heading1>Contacts</Heading1>
       </Column>
-      <Column>
+      <Column inView={inView}>
         <Link
           href="https://github.com/szalashaska"
           target="_blank"

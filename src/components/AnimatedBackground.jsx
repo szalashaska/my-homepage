@@ -29,7 +29,7 @@ const AnimatedBackgroundStyled = styled.canvas`
 
 const AnimatedBackground = () => {
   const flowFieldAnimiationRef = useRef(null);
-  const observer = useRef(null);
+  const observerRef = useRef(null);
   const canvasRef = useRef(null);
   const mouseRef = useRef({
     x: 0,
@@ -66,7 +66,27 @@ const AnimatedBackground = () => {
         // To unify animations frame for fast and slow machines, we use delta time, interval etc.
         this.interval = 1000 / 60; // 60 frames per secound
         this.timer = 0;
-        this.cellSize = 16;
+
+        if (width < 600) {
+          this.cellSize = 16;
+          this.lengthVariable = 0.000075;
+        } else if (600 <= width && width < 1000) {
+          this.cellSize = 18;
+          this.lengthVariable = 0.00008;
+        } else if (1000 <= width && width < 1400) {
+          this.cellSize = 22;
+          this.lengthVariable = 0.000085;
+        } else if (1400 <= width && width < 2000) {
+          this.cellSize = 24;
+          this.lengthVariable = 0.00009;
+        } else if (2000 <= width) {
+          this.cellSize = 26;
+          this.lengthVariable = 0.000095;
+        } else {
+          this.cellSize = 30;
+          this.lengthVariable = 0.00001;
+        }
+
         this.#createGradient();
         this.#ctx.strokeStyle = this.gradient;
         this.radius = 0;
@@ -88,7 +108,7 @@ const AnimatedBackground = () => {
           distance = 50000;
         }
         // Multplication is more efficient than dividing
-        const length = distance * 0.000075;
+        const length = distance * this.lengthVariable;
         this.#ctx.beginPath();
         this.#ctx.moveTo(x, y);
         // Change line length by multiplying angle value
@@ -161,12 +181,12 @@ const AnimatedBackground = () => {
     initiateAnimation();
 
     if (canvasRef.current) {
-      observer.current = new ResizeObserver(initiateAnimation).observe(
+      observerRef.current = new ResizeObserver(initiateAnimation).observe(
         canvasRef.current.parentNode
       );
 
       return () => {
-        if (observer.current) return observer.current.disconnect();
+        if (observerRef.current) return observerRef.current.disconnect();
       };
     }
   }, [initiateAnimation]);

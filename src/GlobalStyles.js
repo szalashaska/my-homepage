@@ -91,25 +91,34 @@ export const Section = styled.section`
   padding-block: 2rem;
   margin-inline: auto;
   max-width: var(--max-vw);
-  min-height: 30rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 900px) {
-    min-height: 40rem;
     flex-direction: row;
   }
 `;
 export const Column = styled.div`
+  opacity: ${(props) => (props.inView ? 1 : 0)};
+  filter: blur(${(props) => (props.inView ? 0 : "5px")});
   padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  min-height: 15rem;
+  transition: all 1s;
   @media screen and (min-width: 900px) {
     width: 50%;
+  }
+  &:nth-child(odd) {
+    transform: translateX(${(props) => (props.inView ? 0 : "-100%")});
+  }
+  &:nth-child(even) {
+    transform: translateX(${(props) => (props.inView ? 0 : "100%")});
   }
 `;
 
