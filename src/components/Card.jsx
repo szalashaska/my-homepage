@@ -79,7 +79,7 @@ const Link = styled(LinkStyled)`
 const Card = ({ img, heading, text, link, github }) => {
   return (
     <CardStyled>
-      <Image src={img} />
+      <Image src={img} alt="Project picture" />
       <Heading>{heading}</Heading>
       <Paragraph>{text}</Paragraph>
       <LinkContainer>

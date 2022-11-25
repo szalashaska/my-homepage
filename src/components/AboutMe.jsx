@@ -58,10 +58,10 @@ const AboutMe = () => {
           </Paragraph>
 
           <Paragraph>
-            I was always interested in new technologies and computer science. I
-            decided to give it a try and took Harvard's CS50 course. After a few
-            courses, lots of tutorials and first commercial experience I know
-            that it was the best decision I could made.
+            Since I was always interested in new technologies and computer
+            science, I decided to give it a try and took Harvard's CS50 course.
+            After a few courses, lots of tutorials and first commercial
+            experience I know that it was the best decision I could made.
           </Paragraph>
 
           <Paragraph>
@@ -71,11 +71,9 @@ const AboutMe = () => {
 
           <Heading3>Educational background</Heading3>
           <Paragraph>
-            From 2011 to 2017 I was studying at Lodz University of Technology,
-            faculty of Civil Engineering. As a result I obtained master's
-            degree. For a semester between 2015/2016 I took part in "Erasmus" -
-            students exchange program at Instituto Superior de Engenharia de
-            Lisboa, Portugal.
+            I obtained master's degree in Civil Engineering at Lodz University
+            of Technology. I took part in students exchange program "Erasmus" at
+            Instituto Superior de Engenharia de Lisboa, Portugal.
           </Paragraph>
           <Paragraph>
             In years 2021 and 2022 I participated and completed Harvard's CS50
@@ -87,7 +85,7 @@ const AboutMe = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={harvard} />
+            <Image src={harvard} alt="Harvard's logo" />
             <Paragraph>CS50's Introduction to Computer Science</Paragraph>
           </LinkWrapper>
 
@@ -96,7 +94,7 @@ const AboutMe = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={harvard} />
+            <Image src={harvard} alt="Harvard's logo" />
             <Paragraph>
               CS50's Web Programming with Python and JavaScript
             </Paragraph>

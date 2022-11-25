@@ -55,7 +55,7 @@ const Header = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={myself} />
+          <Image src={myself} alt="" />
         </Link>
         <Heading1 bold align="center">
           Hi! I am Kamil Petryniak

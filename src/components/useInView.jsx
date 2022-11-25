@@ -10,7 +10,7 @@ const useInView = () => {
         const entry = entries[0];
         setInView(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     observer.observe(ref.current);
   }, []);

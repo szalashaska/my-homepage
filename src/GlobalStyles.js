@@ -68,6 +68,7 @@ export const Heading3 = styled.h3`
   margin-bottom: ${({ mb }) => mb || "0.4em"};
   text-align: ${({ align }) => align || "left"};
   font-weight: ${({ bold }) => (bold ? 900 : 500)};
+  color: var(--font-clr);
   font-size: clamp(1.2rem, 1.1053rem + 0.4211vw, 1.5rem);
 `;
 
