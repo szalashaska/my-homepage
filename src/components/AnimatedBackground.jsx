@@ -38,6 +38,8 @@ const AnimatedBackground = () => {
 
   const { theme } = useContext(ThemeContext);
 
+  // In view custom hook
+
   const handleMouseMove = useCallback(
     (e) => {
       mouseRef.current.x = e.x;
@@ -186,7 +188,10 @@ const AnimatedBackground = () => {
       );
 
       return () => {
-        if (observerRef.current) return observerRef.current.disconnect();
+        // Delete observer and cancel animiation
+        if (observerRef.current) observerRef.current.disconnect();
+        if (flowFieldAnimiationRef.current)
+          cancelAnimationFrame(flowFieldAnimiationRef.current);
       };
     }
   }, [initiateAnimation]);

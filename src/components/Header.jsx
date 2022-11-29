@@ -2,6 +2,7 @@ import styled from "styled-components";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { Heading1 } from "../GlobalStyles";
 import myself from "../assets/myself.jpg";
+import useInView from "./useInView";
 
 const HeaderStyled = styled.main`
   position: relative;
@@ -46,9 +47,10 @@ const Image = styled.img`
 `;
 
 const Header = () => {
+  const { inView, ref: myRef } = useInView();
   return (
-    <HeaderStyled>
-      <AnimatedBackground />
+    <HeaderStyled ref={myRef}>
+      {inView && <AnimatedBackground />}
       <Container>
         <Link
           href="https://www.linkedin.com/in/kamil-petryniak/"
