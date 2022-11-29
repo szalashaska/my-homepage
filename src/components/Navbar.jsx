@@ -210,7 +210,7 @@ const Navbar = () => {
     <NavbarStyled>
       <List ref={navbarRef}>
         <ImageItem ref={imageRef} onClick={() => window.scrollTo(0, 0)}>
-          <Image src={myself} />
+          <Image src={myself} alt="" />
         </ImageItem>
         {navbarContent.map((item) => (
           <Item key={item.id}>

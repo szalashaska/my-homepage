@@ -169,7 +169,7 @@ const AnimatedBackground = () => {
     }
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
     canvas.width = canvasRef.current.parentNode.clientWidth;
     canvas.height = canvasRef.current.parentNode.clientHeight;
 
