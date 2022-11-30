@@ -7,8 +7,9 @@ import Projects from "../components/Projects";
 
 const HomeStyled = styled.main`
   background: var(--bg-clr);
-  max-width: 100%;
+  width: 100%;
   overflow-x: hidden;
+  height: 100%;
 `;
 
 const Home = () => {

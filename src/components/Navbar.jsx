@@ -209,7 +209,10 @@ const Navbar = () => {
   return (
     <NavbarStyled>
       <List ref={navbarRef}>
-        <ImageItem ref={imageRef} onClick={() => window.scrollTo(0, 0)}>
+        <ImageItem
+          ref={imageRef}
+          onClick={() => (window.location.href = "#home")}
+        >
           <Image src={myself} alt="" />
         </ImageItem>
         {navbarContent.map((item) => (

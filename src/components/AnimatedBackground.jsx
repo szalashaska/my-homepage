@@ -28,7 +28,7 @@ const AnimatedBackgroundStyled = styled.canvas`
 `;
 
 const AnimatedBackground = () => {
-  const flowFieldAnimiationRef = useRef(null);
+  const animationRef = useRef(null);
   const observerRef = useRef(null);
   const canvasRef = useRef(null);
   const mouseRef = useRef({
@@ -52,8 +52,7 @@ const AnimatedBackground = () => {
 
   const initiateAnimation = useCallback(() => {
     if (!canvasRef.current) return;
-    if (flowFieldAnimiationRef.current)
-      cancelAnimationFrame(flowFieldAnimiationRef.current);
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
 
     class FlowFieldEffect {
       #ctx;
@@ -71,22 +70,22 @@ const AnimatedBackground = () => {
 
         if (width < 600) {
           this.cellSize = 16;
-          this.lengthVariable = 0.000075;
+          this.lengthVariable = 0.00008;
         } else if (600 <= width && width < 1000) {
           this.cellSize = 18;
-          this.lengthVariable = 0.00008;
+          this.lengthVariable = 0.000085;
         } else if (1000 <= width && width < 1400) {
           this.cellSize = 22;
-          this.lengthVariable = 0.000085;
+          this.lengthVariable = 0.00009;
         } else if (1400 <= width && width < 2000) {
           this.cellSize = 24;
-          this.lengthVariable = 0.00009;
+          this.lengthVariable = 0.000095;
         } else if (2000 <= width) {
           this.cellSize = 26;
-          this.lengthVariable = 0.000095;
+          this.lengthVariable = 0.0001;
         } else {
           this.cellSize = 30;
-          this.lengthVariable = 0.00001;
+          this.lengthVariable = 0.000015;
         }
 
         this.#createGradient();
@@ -164,9 +163,7 @@ const AnimatedBackground = () => {
         }
 
         // After first loop js forgets what .this is, so we need to "bind" it for next loops
-        flowFieldAnimiationRef.current = requestAnimationFrame(
-          this.animate.bind(this)
-        );
+        animationRef.current = requestAnimationFrame(this.animate.bind(this));
       }
     }
 
@@ -190,8 +187,7 @@ const AnimatedBackground = () => {
       return () => {
         // Delete observer and cancel animiation
         if (observerRef.current) observerRef.current.disconnect();
-        if (flowFieldAnimiationRef.current)
-          cancelAnimationFrame(flowFieldAnimiationRef.current);
+        if (animationRef.current) cancelAnimationFrame(animationRef.current);
       };
     }
   }, [initiateAnimation]);

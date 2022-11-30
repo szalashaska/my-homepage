@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { Column, Heading1, Heading2, Section } from "../GlobalStyles";
+import { Column, Heading2, Section } from "../GlobalStyles";
 import verical from "../assets/my-vertical.PNG";
 import memory from "../assets/memory.PNG";
 import Card from "./Card";
 import useInView from "./useInView";
+import AnimatedText from "./AnimatedText";
 
 const projectCards = [
   {
@@ -70,8 +71,8 @@ const Projects = () => {
         </CardContainer>
       </Column>
 
-      <Column inView={inView}>
-        <Heading1>Projects</Heading1>
+      <Column inView={true}>
+        {inView && <AnimatedText text={"Projects"} />}
       </Column>
     </ProjectsStyled>
   );

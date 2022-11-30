@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { Column, Heading1, LinkStyled, Section } from "../GlobalStyles";
+import { Column, LinkStyled, Section } from "../GlobalStyles";
 import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Linkedin } from "../assets/linkedin.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Download } from "../assets/download.svg";
 import useInView from "./useInView";
+import AnimatedText from "./AnimatedText";
 
 const ContactsStyled = styled(Section)``;
 
@@ -90,8 +91,8 @@ const Contacts = () => {
 
   return (
     <ContactsStyled id="contacts" ref={myRef}>
-      <Column inView={inView}>
-        <Heading1>Contacts</Heading1>
+      <Column inView={true}>
+        {inView && <AnimatedText text={"Contacts"} />}
       </Column>
       <Column inView={inView}>
         <Link

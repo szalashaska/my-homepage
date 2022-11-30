@@ -48,8 +48,9 @@ const Image = styled.img`
 
 const Header = () => {
   const { inView, ref: myRef } = useInView();
+
   return (
-    <HeaderStyled ref={myRef}>
+    <HeaderStyled ref={myRef} id="home">
       {inView && <AnimatedBackground />}
       <Container>
         <Link

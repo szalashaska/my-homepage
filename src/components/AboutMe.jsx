@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   Column,
-  Heading1,
   Heading2,
   Heading3,
   LinkStyled,
@@ -12,6 +11,7 @@ import {
 
 import harvard from "../assets/harvard.png";
 import useInView from "./useInView";
+import AnimatedText from "./AnimatedText";
 
 const AbouteMeStyled = styled(Section)``;
 
@@ -40,8 +40,8 @@ const AboutMe = () => {
 
   return (
     <AbouteMeStyled id="about-me" ref={myRef}>
-      <Column inView={inView}>
-        <Heading1>About me</Heading1>
+      <Column inView={true}>
+        {inView && <AnimatedText text={"About me"} />}
       </Column>
       <Column inView={inView}>
         <Wrapper>
