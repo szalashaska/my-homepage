@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, LinkStyled, Section } from "../GlobalStyles";
+import { Column, LinkStyled, Section, SectionTitle } from "../GlobalStyles";
 import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Linkedin } from "../assets/linkedin.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
@@ -93,6 +93,7 @@ const Contacts = () => {
     <ContactsStyled id="contacts" ref={myRef}>
       <Column inView={true}>
         {inView && <AnimatedText text={"Contacts"} />}
+        <SectionTitle>Contacts</SectionTitle>
       </Column>
       <Column inView={inView}>
         <Link

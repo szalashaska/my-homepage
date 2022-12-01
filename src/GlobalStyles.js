@@ -55,6 +55,7 @@ export const Heading1 = styled.h1`
   font-size: clamp(2rem, 1.6842rem + 1.4035vw, 3rem);
   letter-spacing: -2px;
 `;
+
 export const Heading2 = styled.h2`
   margin-bottom: ${({ mb }) => mb || "0.4em"};
   text-align: ${({ align }) => align || "left"};
@@ -110,7 +111,7 @@ export const Column = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  min-height: 12rem;
+  min-height: 18rem;
   transition: all 1s;
   @media screen and (min-width: 900px) {
     width: 50%;
@@ -124,3 +125,10 @@ export const Column = styled.div`
 `;
 
 export const Wrapper = styled.div``;
+
+export const SectionTitle = styled(Heading1)`
+  text-align: center;
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
+`;

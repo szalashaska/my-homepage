@@ -8,11 +8,12 @@ const brightColor = [0, 0, 0];
 
 const Wrapper = styled.div`
   position: relative;
-  width: 100%;
-  min-height: 18rem;
-  /* border: 2px solid white; */
-  @media screen and (min-width: 900px) {
+  display: none;
+  @media screen and (min-width: 700px) {
+    display: block;
+    width: 100%;
     min-height: 30rem;
+    font-size: 7rem;
   }
 `;
 
@@ -89,7 +90,7 @@ const AnimatedText = ({ text }) => {
         // this.density: different particles will have different mass and move with different speed
         let directionX = forceDirectionX * force * this.density;
         let directionY = forceDirectionY * force * this.density;
-        let returnSpeed = 30;
+        let returnSpeed = 25;
 
         // if (this.baseX - this.x < 0.001) {
         //   console.log("done moving");
@@ -117,25 +118,26 @@ const AnimatedText = ({ text }) => {
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
+    // Do not draw on the canvas for small screens
+    if (window.innerWidth < 700) return;
+
     canvas.width = canvasRef.current.parentNode.clientWidth;
     canvas.height = canvasRef.current.parentNode.clientHeight;
     const width = canvas.width;
     const height = canvas.height;
 
     // Responsive settings
-    let gap;
-    let thresholdConnectionDistance;
     let fontSize;
+    const gap = 10;
+    let thresholdConnectionDistance;
     if (width < 350) {
-      gap = 6;
-      thresholdConnectionDistance = 450;
-      fontSize = "3rem";
+      fontSize = "1em";
+      thresholdConnectionDistance = 400;
     } else if (350 <= width && width < 600) {
-      gap = 8;
       thresholdConnectionDistance = 500;
       fontSize = "4.5rem";
     } else {
-      gap = 10;
       thresholdConnectionDistance = 700;
       fontSize = "7rem";
     }

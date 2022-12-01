@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Heading2, Section } from "../GlobalStyles";
+import { Column, Heading2, Section, SectionTitle } from "../GlobalStyles";
 import verical from "../assets/my-vertical.PNG";
 import memory from "../assets/memory.PNG";
 import Card from "./Card";
@@ -73,6 +73,7 @@ const Projects = () => {
 
       <Column inView={true}>
         {inView && <AnimatedText text={"Projects"} />}
+        <SectionTitle>Projects</SectionTitle>
       </Column>
     </ProjectsStyled>
   );

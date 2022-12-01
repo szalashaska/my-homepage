@@ -6,6 +6,7 @@ import {
   LinkStyled,
   Paragraph,
   Section,
+  SectionTitle,
   Wrapper,
 } from "../GlobalStyles";
 
@@ -42,6 +43,7 @@ const AboutMe = () => {
     <AbouteMeStyled id="about-me" ref={myRef}>
       <Column inView={true}>
         {inView && <AnimatedText text={"About me"} />}
+        <SectionTitle>About me</SectionTitle>
       </Column>
       <Column inView={inView}>
         <Wrapper>
