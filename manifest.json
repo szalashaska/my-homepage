@@ -1,0 +1,21 @@
+{
+  "short_name": "Kamil's portfolio",
+  "name": "Kamil Petryniak's portfolio",
+  "description": "Personal portfolio of Kamil Petryniak. Contains his career description, some projects and how to contact him.",
+  "icons": [
+    {
+      "src": "fav.ico",
+      "type": "image/x-icon",
+      "sizes": "64x64 32x32 24x24 16x16"
+    },
+    {
+      "src": "ico.PNG",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/https://szalashaska.github.io/my-homepage/",
+  "display": "standalone",
+  "theme_color": "#f635ef",
+  "background_color": "#76726e"
+}
