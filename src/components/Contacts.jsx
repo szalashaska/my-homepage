@@ -92,7 +92,7 @@ const Contacts = () => {
   return (
     <ContactsStyled id="contacts" ref={myRef}>
       <Column inView={true}>
-        {inView && <AnimatedText text={"Contacts"} />}
+        {inView && <AnimatedText text={"Contacts"} aria-label="Contacts" />}
         <SectionTitle>Contacts</SectionTitle>
       </Column>
       <Column inView={inView}>
@@ -100,6 +100,7 @@ const Contacts = () => {
           href="https://github.com/szalashaska"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="See my github account"
         >
           <Icon as={GithubIco} />
           <Info>Github account</Info>
@@ -109,6 +110,7 @@ const Contacts = () => {
           href="https://www.linkedin.com/in/kamil-petryniak/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="See my linkedin account"
         >
           <Icon as={LinkedinIco} />
           <Info>Linkedin account</Info>
@@ -118,12 +120,18 @@ const Contacts = () => {
           href="mailto: kamilpetryniak@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Write email to me"
         >
           <Icon as={EmailIco} />
           <Info>Email me</Info>
         </Link>
 
-        <Button type="button" onClick={handleButtonClick}>
+        <Button
+          type="button"
+          onClick={handleButtonClick}
+          title="Download my CV"
+          aria-label="Download my CV"
+        >
           <Icon as={DownloadIco} />
           <Info>Download my CV</Info>
         </Button>

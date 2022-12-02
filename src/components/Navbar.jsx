@@ -221,7 +221,12 @@ const Navbar = () => {
           </Item>
         ))}
         <ModeItem>
-          <ModeButton type="button" onClick={handleThemeChange}>
+          <ModeButton
+            type="button"
+            onClick={handleThemeChange}
+            title="Color theme button"
+            aria-label="Color theme button"
+          >
             {theme === "dark" ? <BrightIco /> : <DarkIco />}
           </ModeButton>
         </ModeItem>

@@ -42,7 +42,7 @@ const AboutMe = () => {
   return (
     <AbouteMeStyled id="about-me" ref={myRef}>
       <Column inView={true}>
-        {inView && <AnimatedText text={"About me"} />}
+        {inView && <AnimatedText text={"About me"} aria-label="Projects" />}
         <SectionTitle>About me</SectionTitle>
       </Column>
       <Column inView={inView}>
@@ -86,6 +86,7 @@ const AboutMe = () => {
             href="https://certificates.cs50.io/af44ea8c-2ff8-44ed-a102-cfa8e22f8493.pdf?size=letter"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="See certificate on Harvard's page"
           >
             <Image src={harvard} alt="Harvard's logo" />
             <Paragraph>CS50's Introduction to Computer Science</Paragraph>
@@ -95,6 +96,7 @@ const AboutMe = () => {
             href="https://certificates.cs50.io/c83d4b4b-b5a1-45d4-bd54-7724ddd6c816.pdf?size=letter"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="See certificate on Harvard's page"
           >
             <Image src={harvard} alt="Harvard's logo" />
             <Paragraph>

@@ -83,11 +83,21 @@ const Card = ({ img, heading, text, link, github }) => {
       <Heading>{heading}</Heading>
       <Paragraph>{text}</Paragraph>
       <LinkContainer>
-        <Link href={link} target="_blank" rel="noopener noreferrer">
+        <Link
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="See live deployed application"
+        >
           <>Check out live</>
           <Icon as={ArrowIco} />
         </Link>
-        <Link href={github} target="_blank" rel="noopener noreferrer">
+        <Link
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="See project's code on github"
+        >
           See on github
           <Icon as={GithubIco} />
         </Link>

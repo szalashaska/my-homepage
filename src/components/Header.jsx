@@ -57,6 +57,7 @@ const Header = () => {
           href="https://www.linkedin.com/in/kamil-petryniak/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="See my linkedin account"
         >
           <Image src={myself} alt="Picture of Kamil" />
         </Link>
