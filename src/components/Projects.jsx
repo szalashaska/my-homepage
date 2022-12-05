@@ -23,7 +23,7 @@ const projectCards = [
     heading: "Memory Card Game",
     text: `Simple web app - browser based game created with HTML, CSS, JavaScript and Pythons's Flask on backend.
      In game you are looking for matching pairs by fliping cards. With the use of Pexels API (photos stock) you can choose theme of the cards you are playing with.`,
-    link: "https://memory-timetoplay.herokuapp.com/",
+    link: "https://web-production-120b.up.railway.app/",
     github: "https://github.com/szalashaska/memory",
   },
 ];
