@@ -20,27 +20,33 @@ const ArrowIco = styled(Arrow)`
 `;
 
 const CardStyled = styled.div`
-  background: linear-gradient(45deg, #312828, var(--bg-clr) 15% 85%, #380923);
-  padding: 2rem 1.5rem 5em 1.5rem;
   width: 100%;
   border-radius: 20px;
+  overflow: hidden;
+  display: block;
+  box-shadow: 0 0 20px #867272;
+
+  @media screen and (min-width: 1200px) {
+    width: 50%;
+  }
+`;
+
+const TextWrapper = styled.div`
+  background: linear-gradient(45deg, #312828, var(--bg-clr) 15% 85%, #380923);
+  padding: 0.5rem 1.5rem 5em 1.5rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 20px #867272;
   position: relative;
   &:hover a {
     transform: scale(1.05);
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   }
-  @media screen and (min-width: 1200px) {
-    width: 50%;
-  }
 `;
+
 const Image = styled.img`
   aspect-ratio: 1/1;
-  border-radius: 20px;
   object-fit: cover;
-  overflow: hidden;
 `;
 
 const Heading = styled(Heading2)`
@@ -80,28 +86,30 @@ const Card = ({ img, heading, text, link, github }) => {
   return (
     <CardStyled>
       <Image src={img} alt="Project picture" />
-      <Heading>{heading}</Heading>
-      <Paragraph>{text}</Paragraph>
-      <LinkContainer>
-        <Link
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="See live deployed application"
-        >
-          <>Check out live</>
-          <Icon as={ArrowIco} />
-        </Link>
-        <Link
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="See project's code on github"
-        >
-          See on github
-          <Icon as={GithubIco} />
-        </Link>
-      </LinkContainer>
+      <TextWrapper>
+        <Heading>{heading}</Heading>
+        <Paragraph>{text}</Paragraph>
+        <LinkContainer>
+          <Link
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="See live deployed application"
+          >
+            <>Check out live</>
+            <Icon as={ArrowIco} />
+          </Link>
+          <Link
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="See project's code on github"
+          >
+            See on github
+            <Icon as={GithubIco} />
+          </Link>
+        </LinkContainer>
+      </TextWrapper>
     </CardStyled>
   );
 };
