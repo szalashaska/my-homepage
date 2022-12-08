@@ -23,20 +23,20 @@ const CardStyled = styled.div`
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: 0 0 20px #867272;
-
   @media screen and (min-width: 1200px) {
     width: 50%;
   }
 `;
 
 const TextWrapper = styled.div`
-  background: linear-gradient(45deg, #312828, var(--bg-clr) 15% 85%, #380923);
+  background: linear-gradient(45deg, #312828, var(--bg-clr) 25% 75%, #380923);
   padding: 0.5rem 1.5rem 5em 1.5rem;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
   position: relative;
   &:hover a {
     transform: scale(1.05);
@@ -45,6 +45,7 @@ const TextWrapper = styled.div`
 `;
 
 const Image = styled.img`
+  width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
 `;

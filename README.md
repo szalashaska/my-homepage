@@ -1,2 +1,3 @@
 # My homepage
-My personal portfolio. Responsive website with the use of React.
+
+My personal portfolio. Responsive website created with React and Styled Components. No animation libraries was used.
