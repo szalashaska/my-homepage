@@ -26,7 +26,6 @@ const AnimatedTextStyled = styled.canvas`
 
 const AnimatedText = ({ text }) => {
   const animationRef = useRef(null);
-  const observerRef = useRef(null);
   const canvasRef = useRef(null);
   const canvasRectRef = useRef(null);
   const mouseRef = useRef({
@@ -239,13 +238,14 @@ const AnimatedText = ({ text }) => {
     initiateAnimation();
 
     if (canvasRef.current) {
-      observerRef.current = new ResizeObserver(initiateAnimation).observe(
+      let observer;
+      observer = new ResizeObserver(initiateAnimation).observe(
         canvasRef.current.parentNode
       );
 
       return () => {
         // Delete observer and cancel animiation
-        if (observerRef.current) observerRef.current.disconnect();
+        if (observer) observer.disconnect();
         if (animationRef.current) cancelAnimationFrame(animationRef.current);
       };
     }

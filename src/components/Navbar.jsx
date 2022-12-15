@@ -225,7 +225,7 @@ const Navbar = () => {
             type="button"
             onClick={handleThemeChange}
             title="Color theme button"
-            aria-label="Color theme button"
+            aria-label="Color theme button."
           >
             {theme === "dark" ? <BrightIco /> : <DarkIco />}
           </ModeButton>

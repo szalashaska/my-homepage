@@ -4,7 +4,7 @@ import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Linkedin } from "../assets/linkedin.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Download } from "../assets/download.svg";
-import useInView from "./useInView";
+import useInView from "../hooks/useInView";
 import AnimatedText from "./AnimatedText";
 
 const ContactsStyled = styled(Section)``;
@@ -100,7 +100,7 @@ const Contacts = () => {
           href="https://github.com/szalashaska"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="See my github account"
+          aria-label="See my github account."
         >
           <Icon as={GithubIco} />
           <Info>Github account</Info>
@@ -110,7 +110,7 @@ const Contacts = () => {
           href="https://www.linkedin.com/in/kamil-petryniak/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="See my linkedin account"
+          aria-label="See my linkedin account."
         >
           <Icon as={LinkedinIco} />
           <Info>Linkedin account</Info>
@@ -120,7 +120,7 @@ const Contacts = () => {
           href="mailto: kamilpetryniak@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Write email to me"
+          aria-label="Write email to me."
         >
           <Icon as={EmailIco} />
           <Info>Email me</Info>
@@ -130,7 +130,7 @@ const Contacts = () => {
           type="button"
           onClick={handleButtonClick}
           title="Download my CV"
-          aria-label="Download my CV"
+          aria-label="Download my CV."
         >
           <Icon as={DownloadIco} />
           <Info>Download my CV</Info>

@@ -20,6 +20,7 @@ const ArrowIco = styled(Arrow)`
 `;
 
 const CardStyled = styled.div`
+  margin: 2rem;
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
@@ -27,9 +28,9 @@ const CardStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 0 20px #867272;
-  @media screen and (min-width: 1200px) {
+  /* @media screen and (min-width: 1200px) {
     width: 50%;
-  }
+  } */
 `;
 
 const TextWrapper = styled.div`
@@ -38,6 +39,7 @@ const TextWrapper = styled.div`
   width: 100%;
   flex-grow: 1;
   position: relative;
+  white-space: normal;
   &:hover a {
     transform: scale(1.05);
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
@@ -95,7 +97,7 @@ const Card = ({ img, heading, text, link, github }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="See live deployed application"
+            aria-label="See live deployed application."
           >
             <>Check out live</>
             <Icon as={ArrowIco} />
@@ -104,7 +106,7 @@ const Card = ({ img, heading, text, link, github }) => {
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="See project's code on github"
+            aria-label="See project's code on github."
           >
             See on github
             <Icon as={GithubIco} />

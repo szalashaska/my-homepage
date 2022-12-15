@@ -2,7 +2,7 @@ import styled from "styled-components";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { Heading1 } from "../GlobalStyles";
 import myself from "../assets/myself.jpg";
-import useInView from "./useInView";
+import useInView from "../hooks/useInView";
 
 const HeaderStyled = styled.main`
   position: relative;

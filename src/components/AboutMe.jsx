@@ -11,7 +11,7 @@ import {
 } from "../GlobalStyles";
 
 import harvard from "../assets/harvard.png";
-import useInView from "./useInView";
+import useInView from "../hooks/useInView";
 import AnimatedText from "./AnimatedText";
 
 const AbouteMeStyled = styled(Section)``;
@@ -110,7 +110,7 @@ const AboutMe = () => {
           </Paragraph>
           <Paragraph> SQLite, PostgreSQL,</Paragraph>
           <Paragraph>React, Django, Flask,</Paragraph>
-          <Paragraph>Styled Components, React Router</Paragraph>
+          <Paragraph>Sass, Styled Components, React Router</Paragraph>
         </Wrapper>
       </Column>
     </AbouteMeStyled>
