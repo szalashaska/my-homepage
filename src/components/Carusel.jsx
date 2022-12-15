@@ -169,9 +169,11 @@ const Carusel = ({ children, displayOption }) => {
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       onTouchStart={(e) => {
+        e.preventDefault();
         touchStratCoordsRef.current = e.touches[0].clientX;
       }}
       onTouchEnd={(e) => {
+        e.preventDefault();
         handleSwipeOnTouchscreen(e.changedTouches[0].clientX);
       }}
       blurRightSide={displayOption === 1}

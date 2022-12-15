@@ -20,7 +20,7 @@ const ArrowIco = styled(Arrow)`
 `;
 
 const CardStyled = styled.div`
-  margin: 2rem;
+  margin: 1rem;
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
@@ -28,9 +28,9 @@ const CardStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 0 20px #867272;
-  /* @media screen and (min-width: 1200px) {
-    width: 50%;
-  } */
+  @media screen and (min-width: 1200px) {
+    margin: 2rem;
+  }
 `;
 
 const TextWrapper = styled.div`

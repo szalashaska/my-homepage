@@ -91,11 +91,6 @@ const AnimatedText = ({ text }) => {
         let directionY = forceDirectionY * force * this.density;
         let returnSpeed = 25;
 
-        // if (this.baseX - this.x < 0.001) {
-        //   console.log("done moving");
-        //   cancelAnimationFrame(animationRef.current);
-        // }
-
         if (distance < mouseRef.current.radius) {
           this.x -= directionX;
           this.y -= directionY;
@@ -211,7 +206,7 @@ const AnimatedText = ({ text }) => {
   }, [text, colorTheme]);
 
   const updateCanvasCoordinates = () => {
-    // Updates Canvas coordinates, allows user to scroll and zoom image
+    // Updates Canvas coordinates, allows delay to scroll and zoom image
 
     const boundingRect = canvasRef.current.getBoundingClientRect();
     let x;

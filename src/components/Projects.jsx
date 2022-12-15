@@ -26,7 +26,6 @@ const Projects = () => {
 
   useEffect(() => {
     if (caruselContainerRef.current) {
-      // console.log(caruselContainerRef.current.clientWidth);
       let observer;
       observer = new ResizeObserver(updateCaruselWidth).observe(
         caruselContainerRef.current
