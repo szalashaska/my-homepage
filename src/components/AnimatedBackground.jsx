@@ -37,8 +37,6 @@ const AnimatedBackground = () => {
 
   const { theme } = useContext(ThemeContext);
 
-  // In view custom hook
-
   const handleMouseMove = useCallback(
     (e) => {
       mouseRef.current.x = e.x;

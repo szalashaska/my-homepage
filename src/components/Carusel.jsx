@@ -67,6 +67,7 @@ const DotButton = styled.button`
 
 const NextPrevButton = styled.button`
   --button-size: 2rem;
+  display: none;
   position: absolute;
   right: ${(props) => (props.right ? "2%" : "auto")};
   left: ${(props) => (props.left ? "2%" : "auto")};
@@ -86,6 +87,10 @@ const NextPrevButton = styled.button`
   &:hover,
   &:focus {
     transform: scale(1.1);
+  }
+
+  @media screen and (min-width: 500px) {
+    display: block;
   }
 
   & span {
@@ -132,6 +137,10 @@ const Carusel = ({ children, displayOption }) => {
     displayVariant = DISPLAY_OPTIONS[displayOption];
   }
 
+  const handleTouchStart = (e) => {
+    touchStratCoordsRef.current = e.targetTouches[0].clientX;
+  };
+
   const updateIndex = (newIndex) => {
     const childrenCount = Children.count(children);
     if (newIndex < 0) {
@@ -143,9 +152,10 @@ const Carusel = ({ children, displayOption }) => {
     setActiveIndex(newIndex);
   };
 
-  const handleSwipeOnTouchscreen = (endCoords) => {
+  const handleTouchEndAndSwipe = (e) => {
     if (!touchStratCoordsRef.current) return;
 
+    const endCoords = e.changedTouches[0].clientX;
     const startCoords = touchStratCoordsRef.current;
     // Minimal swipe distance = 50
     if (Math.abs(startCoords - endCoords) < 50) return;
@@ -168,14 +178,8 @@ const Carusel = ({ children, displayOption }) => {
     <CaruselStyled
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      onTouchStart={(e) => {
-        e.preventDefault();
-        touchStratCoordsRef.current = e.touches[0].clientX;
-      }}
-      onTouchEnd={(e) => {
-        e.preventDefault();
-        handleSwipeOnTouchscreen(e.changedTouches[0].clientX);
-      }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEndAndSwipe}
       blurRightSide={displayOption === 1}
     >
       <InnerCarusel translate={activeIndex * displayVariant.translate}>

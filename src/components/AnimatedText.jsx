@@ -26,6 +26,7 @@ const AnimatedTextStyled = styled.canvas`
 
 const AnimatedText = ({ text }) => {
   const animationRef = useRef(null);
+  const observerRef = useRef(null);
   const canvasRef = useRef(null);
   const canvasRectRef = useRef(null);
   const mouseRef = useRef({
@@ -149,15 +150,15 @@ const AnimatedText = ({ text }) => {
 
     const init = () => {
       particleArray = [];
-      // textCoords array is capped 25% from both sides, since there is no text there
+      // textCoords array is capped 30% from both sides, since there is no text there
       for (
-        let y = Math.floor(textCoords.height * 0.25),
-          y2 = textCoords.height * 0.75;
+        let y = Math.floor(textCoords.height * 0.3),
+          y2 = Math.floor(textCoords.height * 0.7);
         y < y2;
         y += gap
       ) {
         for (let x = 0, x2 = textCoords.width; x < x2; x += gap) {
-          // Opacity of element is more than 50%
+          // Opacity of element is more than 50% (256 / 2 = 128)
           if (textCoords.data[y * 4 * textCoords.width + x * 4 + 3] > 128) {
             let positionX = x;
             let positionY = y;
@@ -233,14 +234,14 @@ const AnimatedText = ({ text }) => {
     initiateAnimation();
 
     if (canvasRef.current) {
-      let observer;
-      observer = new ResizeObserver(initiateAnimation).observe(
+      // let observer;
+      observerRef.current = new ResizeObserver(initiateAnimation).observe(
         canvasRef.current.parentNode
       );
 
       return () => {
         // Delete observer and cancel animiation
-        if (observer) observer.disconnect();
+        if (observerRef.current) observerRef.current.disconnect();
         if (animationRef.current) cancelAnimationFrame(animationRef.current);
       };
     }

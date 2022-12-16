@@ -27,8 +27,10 @@ const CardStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 0 20px #867272;
+  box-shadow: 0 0 10px #867272;
+
   @media screen and (min-width: 1200px) {
+    box-shadow: 0 0 20px #867272;
     margin: 2rem;
   }
 `;
