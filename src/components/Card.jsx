@@ -61,6 +61,10 @@ const Heading = styled(Heading2)`
   }
 `;
 
+const Description = styled(Paragraph)`
+  min-height: 10em;
+`;
+
 const LinkContainer = styled.div`
   width: 100%;
   position: absolute;
@@ -93,17 +97,19 @@ const Card = ({ img, heading, text, link, github }) => {
       <Image src={img} alt="Project picture" />
       <TextWrapper>
         <Heading>{heading}</Heading>
-        <Paragraph>{text}</Paragraph>
+        <Description>{text}</Description>
         <LinkContainer>
-          <Link
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="See live deployed application."
-          >
-            <>Check out live</>
-            <Icon as={ArrowIco} />
-          </Link>
+          {link && (
+            <Link
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="See live deployed application."
+            >
+              <>Check out live</>
+              <Icon as={ArrowIco} />
+            </Link>
+          )}
           <Link
             href={github}
             target="_blank"
