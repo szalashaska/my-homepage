@@ -3,11 +3,13 @@ import memory from "../assets/memory.PNG";
 import rockpaper from "../assets/rock-paper.PNG";
 import music from "../assets/music.PNG";
 import task from "../assets/task.PNG";
+import countries from "../assets/countries.PNG";
 
 export const projectCards = [
   {
     id: 1,
     img: verical,
+    rank: 3,
     heading: "My Vertical World",
     text: `Browser based platform for climbers created with Django on the backend and React on the frontend.
        With use of Canvas API you can draw climbing route path on the wall image and than add its location on map provided by OpenLayers API.
@@ -18,6 +20,7 @@ export const projectCards = [
   {
     id: 2,
     img: memory,
+    rank: 3,
     heading: "Memory Card Game",
     text: `Simple web app - browser based game created with HTML, CSS, JavaScript and Pythons's Flask on backend.
        In game you are looking for matching pairs by fliping cards. With the use of Pexels API (photos stock) you can choose theme of the cards you are playing with.`,
@@ -28,6 +31,7 @@ export const projectCards = [
   {
     id: 3,
     img: rockpaper,
+    rank: 2,
     heading: "Rock Paper Scissors Lizard Spock",
     text: `Game created with React, using TypeScript and Sass. Responsive design, no animation libraries.
       In game you are fighting against AI by choosing between rock, paper, lizard and spock. If the player wins, they gain
@@ -38,6 +42,7 @@ export const projectCards = [
   {
     id: 4,
     img: music,
+    rank: 3,
     heading: "Music controller",
     text: `Music control web application created with Django on the backend and React on frontend. Integrated with Spotify API
     lets you control music in rooms that you create. Guest can vote to skip song, host can allow for votes. Styling with Material UI. `,
@@ -46,9 +51,20 @@ export const projectCards = [
   {
     id: 5,
     img: task,
+    rank: 1,
     heading: "Task Tracker",
     text: `Simple task tracking app created with React and JSON Server. Add your task and track them, delete when they are done. Make task more visible by setting
     important label when creating task or double click on existing one. Edit added task by clicking edit button.`,
     github: "https://github.com/szalashaska/rock-paper-scissors",
+  },
+  {
+    id: 6,
+    img: countries,
+    rank: 1,
+    heading: "Countries API",
+    text: `Countries API with color theme switcher - created with React, using TypeScript and Sass. Simple web app that shows usage of API. User can filter countries by region and / or search by name.
+    Clicking on country lets user read detial information about it. Responsive design, mobile first. This is a solution to Frontend Mentor challenge.`,
+    link: "https://countries-api-ebon.vercel.app/",
+    github: "https://github.com/szalashaska/countries-api",
   },
 ];

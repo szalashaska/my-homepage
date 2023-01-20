@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Heading2, LinkStyled, Paragraph } from "../GlobalStyles";
 import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Arrow } from "../assets/arrow-right.svg";
+import { ReactComponent as Star } from "../assets/star.svg";
 
 const Icon = styled.svg`
   fill: var(--font-clr);
@@ -17,6 +18,14 @@ const GithubIco = styled(Github)``;
 
 const ArrowIco = styled(Arrow)`
   height: 24px;
+`;
+
+const StarIco = styled(Star)`
+  margin-inline: 0;
+  height: 18px;
+  @media screen and (min-width: 450px) {
+    height: 24px;
+  }
 `;
 
 const CardStyled = styled.div`
@@ -48,6 +57,19 @@ const TextWrapper = styled.div`
   }
 `;
 
+const StarsWrapper = styled.div`
+  margin-top: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  @media screen and (min-width: 450px) {
+    margin-top: 0rem;
+  }
+`;
+
 const Image = styled.img`
   width: 100%;
   aspect-ratio: 1/1;
@@ -55,7 +77,8 @@ const Image = styled.img`
 `;
 
 const Heading = styled(Heading2)`
-  margin-block: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
   @media screen and (min-width: 450px) {
     min-height: 2.4em;
   }
@@ -91,12 +114,19 @@ const Link = styled(LinkStyled)`
   }
 `;
 
-const Card = ({ img, heading, text, link, github }) => {
+const Card = ({ cardData }) => {
+  const { img, heading, text, link, github, rank } = cardData;
+
   return (
     <CardStyled>
       <Image src={img} alt="Project picture" />
       <TextWrapper>
         <Heading>{heading}</Heading>
+        <StarsWrapper>
+          {[...Array(rank)].map((item, index) => (
+            <Icon as={StarIco} key={`${item}-${index}`} />
+          ))}
+        </StarsWrapper>
         <Description>{text}</Description>
         <LinkContainer>
           {link && (

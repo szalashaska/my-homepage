@@ -43,14 +43,7 @@ const Projects = () => {
         <Carusel displayOption={caruselWidth < 500 ? 0 : 1}>
           {projectCards.map((card) => (
             <CaruselItem key={card.id}>
-              <Card
-                key={card.id}
-                img={card.img}
-                heading={card.heading}
-                text={card.text}
-                link={card.link}
-                github={card.github}
-              />
+              <Card key={card.id} cardData={card} />
             </CaruselItem>
           ))}
         </Carusel>
