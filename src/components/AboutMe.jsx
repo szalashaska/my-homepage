@@ -108,9 +108,10 @@ const AboutMe = () => {
           <Paragraph>
             HTML, CSS, JavaScript, TypeScript, Python, C (basics),
           </Paragraph>
-          <Paragraph> SQLite, PostgreSQL,</Paragraph>
-          <Paragraph>React, Django, Flask,</Paragraph>
-          <Paragraph>Sass, Styled Components, React Router</Paragraph>
+          <Paragraph> SQLite, PostgreSQL, MongoDB,</Paragraph>
+          <Paragraph>React, Next.js, Django, Flask,</Paragraph>
+          <Paragraph>Sass, Styled Components, React Router,</Paragraph>
+          <Paragraph>Git, Github</Paragraph>
         </Wrapper>
       </Column>
     </AbouteMeStyled>
