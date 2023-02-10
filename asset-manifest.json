@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/my-homepage/static/js/main.d2a0f4ca.js",
+    "main.js": "/my-homepage/static/js/main.ba295ec4.js",
     "static/media/my-vertical.PNG": "/my-homepage/static/media/my-vertical.90cf1b31755d95d4981f.PNG",
     "static/media/harvard.png": "/my-homepage/static/media/harvard.bf439ea8f7230c3c385b.png",
     "static/media/memory.PNG": "/my-homepage/static/media/memory.5d0a8665031cb31e7e1b.PNG",
@@ -18,9 +18,9 @@
     "static/media/dark.svg": "/my-homepage/static/media/dark.9745f4a1859f29588ba5727b7eb0162d.svg",
     "static/media/email.svg": "/my-homepage/static/media/email.6ac62bfa03e2a985535678e82ffed575.svg",
     "static/media/download.svg": "/my-homepage/static/media/download.f7ab357a000b38902028ca395fb084a4.svg",
-    "main.d2a0f4ca.js.map": "/my-homepage/static/js/main.d2a0f4ca.js.map"
+    "main.ba295ec4.js.map": "/my-homepage/static/js/main.ba295ec4.js.map"
   },
   "entrypoints": [
-    "static/js/main.d2a0f4ca.js"
+    "static/js/main.ba295ec4.js"
   ]
 }
