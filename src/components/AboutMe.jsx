@@ -2,7 +2,6 @@ import styled from "styled-components";
 import {
   Column,
   Heading2,
-  Heading3,
   LinkStyled,
   Paragraph,
   Section,
@@ -17,7 +16,7 @@ import AnimatedText from "./AnimatedText";
 const AbouteMeStyled = styled(Section)``;
 
 const Image = styled.img`
-  width: 4rem;
+  width: 3.5rem;
 `;
 
 const LinkWrapper = styled(LinkStyled)`
@@ -36,6 +35,38 @@ const LinkWrapper = styled(LinkStyled)`
   }
 `;
 
+const Blockquote = styled.blockquote`
+  color: var(--font-clr);
+  font-size: clamp(1.5rem, 1.3421rem + 0.7018vw, 2rem);
+  margin-block: 2.5rem;
+  position: relative;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(225, 185, 250, 0.65);
+
+  &:before,
+  &:after {
+    content: "❝";
+    color: var(--font-clr);
+    font-size: 3em;
+    position: absolute;
+  }
+
+  &:before {
+    left: 0;
+    top: 0;
+    transform: translateY(-70%);
+  }
+  &:after {
+    right: 0;
+    bottom: 0;
+    transform: translateY(70%);
+  }
+
+  @media screen and (min-width: 900px) {
+    margin-block: 3rem;
+  }
+`;
+
 const AboutMe = () => {
   const { inView, ref: myRef } = useInView();
 
@@ -47,31 +78,33 @@ const AboutMe = () => {
       </Column>
       <Column inView={inView}>
         <Wrapper>
-          <Heading2 mb="2rem">
+          <Blockquote>
             Self-taught quick learner looking forward to further develop new
-            skills and gain more valuable experience as developer
-          </Heading2>
+            skills and gain more valuable experience as developer.
+          </Blockquote>
 
+          <Heading2>Introduction</Heading2>
           <Paragraph>
-            After 6 years of experience in the field of Civil Engineering, where
+            After 5 years of experience in the field of Civil Engineering, where
             I was involved in design of various constructions, created detailed
-            3D BIM models and finally prepared documentation and drawings I
-            decided that it is time for a change.
+            3D BIM models, prepared documentation and drawings i realised that
+            it just might not be it.
           </Paragraph>
 
           <Paragraph>
-            Since I was always interested in new technologies and computer
-            science, I decided to give it a try and took Harvard's CS50 course.
-            After a few courses, lots of tutorials and first commercial
-            experience I know that it was the best decision I could made.
+            Since I was always drawn towards new technologies and tech
+            innovations I decided to give it a try and took Harvard's CS50
+            course. And just like that I found something that brings me joy,
+            motivation and fun. After a few more courses, lots of tutorials and
+            first commercial experience I am sure that I made the best decision
+            possible.
           </Paragraph>
 
           <Paragraph>
-            As a frontend developer my primary focus is on JavaScript and
-            Python.
+            As a developer my primary focus is on JavaScript and Python.
           </Paragraph>
 
-          <Heading3>Educational background</Heading3>
+          <Heading2>Educational background</Heading2>
           <Paragraph>
             I obtained master's degree in Civil Engineering at Lodz University
             of Technology. I took part in students exchange program "Erasmus" at
@@ -104,7 +137,7 @@ const AboutMe = () => {
             </Paragraph>
           </LinkWrapper>
 
-          <Heading3>Technology stack</Heading3>
+          <Heading2>Technology stack</Heading2>
           <Paragraph>
             HTML, CSS, JavaScript, TypeScript, Python, C (basics),
           </Paragraph>
@@ -112,6 +145,7 @@ const AboutMe = () => {
           <Paragraph>React, Next.js, Django, Flask,</Paragraph>
           <Paragraph>Sass, Styled Components, React Router,</Paragraph>
           <Paragraph>Git, Github</Paragraph>
+          <Paragraph>Methodologies: Agile-Scrum</Paragraph>
         </Wrapper>
       </Column>
     </AbouteMeStyled>
