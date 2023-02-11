@@ -59,7 +59,7 @@ const Blockquote = styled.blockquote`
   &:after {
     right: 0;
     bottom: 0;
-    transform: translateY(70%);
+    transform: translateY(70%) rotate(180deg);
   }
 
   @media screen and (min-width: 900px) {
