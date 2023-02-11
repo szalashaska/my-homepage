@@ -8,10 +8,11 @@ const GlobalStyles = createGlobalStyle`
   --ff-body: 'Exo 2', sans-serif;
   --max-vw: 93.75rem;
   --min-vw: 22.5rem;
+  --clr-black: hsl(0, 0%, 9%);
 
   /* Theme values */
   --font-clr: white;
-  --bg-clr: black;
+  --bg-clr: var(--clr-black);
 
   /* --font-clr: black;
   --bg-clr: white; */
@@ -40,7 +41,7 @@ body {
 
 /* class responsible for bright theme */
 .bright {
-  --font-clr: black;
+  --font-clr: var(--clr-black);
   --bg-clr: white;
 }
 `;
