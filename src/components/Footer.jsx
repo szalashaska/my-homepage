@@ -31,10 +31,12 @@ const FooterStyled = styled.footer`
 `;
 
 const FooterWrapper = styled.div`
-  padding-block: 3rem;
-  color: var(--font-clr);
   --background-light: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
   --background-dark: linear-gradient(45deg, #0eabce, #6e3f86, #d4434d);
+  --animation-speed: 6s;
+
+  padding-block: 3rem;
+  color: var(--font-clr);
 
   --skew-angle: -3deg;
   --background1: ${(props) =>
@@ -67,7 +69,8 @@ const FooterWrapper = styled.div`
     z-index: -2;
     inset: 0;
     transform: skewY(calc(var(--skew-angle) * -1));
-    animation: background-change 8s infinite alternate linear;
+    animation: background-change var(--animation-speed) infinite alternate
+      linear;
     @keyframes background-change {
       100% {
         background-position: right;
