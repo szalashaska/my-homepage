@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
   --ff-body: 'Exo 2', sans-serif;
   --max-vw: 93.75rem;
   --min-vw: 22.5rem;
-  --clr-black: hsl(0, 0%, 9%);
+  --clr-black: rgb(23, 23, 23);
 
   /* Theme values */
   --font-clr: white;
