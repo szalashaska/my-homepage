@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Linkedin } from "../assets/linkedin.svg";
-import { LinkStyled, Paragraph, Wrapper } from "../GlobalStyles";
+import { LinkStyled, Wrapper } from "../GlobalStyles";
 import ThemeContext from "../contexts/ThemeContext";
 import { useContext } from "react";
 
@@ -23,10 +23,6 @@ const SocialLink = styled(LinkStyled)`
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-
-  @media screen and (min-width: 500px) {
-    margin-bottom: 0;
-  }
 `;
 
 const FooterStyled = styled.footer`
@@ -80,10 +76,15 @@ const FooterWrapper = styled.div`
   }
 `;
 
-const FooterText = styled(Paragraph)`
+const FooterText = styled.p`
+  font-size: 0.75rem;
   text-align: center;
   font-weight: 500;
   text-shadow: 0 0 5px rgba(225, 185, 250, 0.725);
+  margin-bottom: 0;
+  @media screen and (min-width: 500px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Footer = () => {
@@ -92,7 +93,7 @@ const Footer = () => {
   return (
     <FooterStyled>
       <FooterWrapper theme={theme}>
-        <FooterText>Website made by Kamil Petryniak</FooterText>
+        <FooterText>Website created by Kamil Petryniak</FooterText>
         <Wrapper>
           <SocialLink
             href="https://github.com/szalashaska"
@@ -121,72 +122,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// const FooterStyled = styled.footer`;
-//   /* mask created with
-//   https://css-generators.com/wavy-shapes/ */
-
-//   padding-top: 7rem;
-//   background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
-//   /* --mask: radial-gradient(11.2rem at 50% 15rem, #000 99%, #0000 101%)
-//       calc(50% - 10rem) 0/20rem 100%,
-//     radial-gradient(11.2rem at 50% -10rem, #0000 99%, #000 101%) 50% 5rem/20rem
-//       100% repeat-x;
-//   -webkit-mask: var(--mask);
-//   mask: var(--mask); */
-// `;
-
-// const FooterStyled = styled.footer`
-//   background: linear-gradient(90deg, red, blue, green, yellow) left/400% 100%;
-//   animation: f 10s infinite alternate linear;
-
-//   @keyframes f {
-//     100% {
-//       background-position: right;
-//     }
-//   }
-// `;
-
-// const FooterWrapper = styled.div`
-//   --s: 40px; /* shape size */
-//   --m: 2px; /* line thickness */
-
-//   --v1: var(--bg-clr) 119.5deg, #0000 120.5deg;
-//   --v2: #000 119.5deg, #0000 120.5deg;
-//   background: conic-gradient(
-//       at var(--m) calc(var(--s) * 0.5777),
-//       transparent 270deg,
-//       #000 0deg
-//     ),
-//     conic-gradient(
-//       at calc(100% - var(--m)) calc(var(--s) * 0.5777),
-//       #000 90deg,
-//       transparent 0deg
-//     ),
-//     conic-gradient(from -60deg at 50% calc(var(--s) * 0.8662), var(--v1)),
-//     conic-gradient(
-//       from -60deg at 50% calc(var(--s) * 0.8662 + 2 * var(--m)),
-//       var(--v2)
-//     ),
-//     conic-gradient(
-//       from 120deg at 50% calc(var(--s) * 1.4435 + 3 * var(--m)),
-//       var(--v1)
-//     ),
-//     conic-gradient(
-//       from 120deg at 50% calc(var(--s) * 1.4435 + var(--m)),
-//       var(--v2)
-//     ),
-//     linear-gradient(
-//       90deg,
-//       var(--bg-clr) calc(50% - var(--m)),
-//       #000 0 calc(50% + var(--m)),
-//       var(--bg-clr) 0
-//     );
-//   background-size: calc(var(--s) + 2 * var(--m))
-//     calc(var(--s) * 1.732 + 3 * var(--m));
-//   mix-blend-mode: lighten;
-//   padding-block: 3rem;
-//   color: var(--font-clr);
-
-//   gap: 0.5rem;
-// `;
