@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-// import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 /* Variables */
@@ -14,8 +13,7 @@ const GlobalStyles = createGlobalStyle`
   --font-clr: white;
   --bg-clr: var(--clr-black);
 
-  /* --font-clr: black;
-  --bg-clr: white; */
+
 }
 /* Reset settings */
 *,
@@ -36,7 +34,8 @@ img {
 }
 
 body {
-    font-family: var(--ff-body)
+  font-family: var(--ff-body);
+  background-color: var(--bg-clr);
 }
 
 /* class responsible for bright theme */

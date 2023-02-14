@@ -20,11 +20,8 @@ const Icon = styled.svg`
 `;
 
 const GithubIco = styled(Github)``;
-
 const LinkedinIco = styled(Linkedin)``;
-
 const EmailIco = styled(Email)``;
-
 const DownloadIco = styled(Download)``;
 
 const Link = styled(LinkStyled)`
