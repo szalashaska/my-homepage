@@ -65,6 +65,7 @@ const AnimatedBackground = () => {
         this.interval = 1000 / 60; // 60 frames per secound
         this.timer = 0;
 
+        // Responsive design configs
         if (width < 600) {
           this.cellSize = 16;
           this.lengthVariable = 0.00008;
@@ -91,7 +92,6 @@ const AnimatedBackground = () => {
         this.vr = 0.02; // velocity of radius
       }
 
-      // Private method -> #
       #drawLine(angle, x, y) {
         // Calculating distance from mouseRef
         let positionX = x;
@@ -141,7 +141,7 @@ const AnimatedBackground = () => {
 
           //Update the rotate variables, reverses the effecct at some point
           this.radius += this.vr;
-          if (this.radius > 8 || this.radius < -8) {
+          if (this.radius > 4.5 || this.radius < -4.5) {
             this.vr *= -1;
           }
           // Map a vector field over screen view
