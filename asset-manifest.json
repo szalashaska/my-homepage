@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.js": "/my-homepage/static/js/main.8cd9f7fc.js",
+    "main.js": "/my-homepage/static/js/main.ba1d9f0c.js",
     "static/media/myself-removebg.png": "/my-homepage/static/media/myself-removebg.2db1f846208cb4664666.png",
     "static/media/my-vertical.PNG": "/my-homepage/static/media/my-vertical.90cf1b31755d95d4981f.PNG",
-    "static/media/code-light.jpg": "/my-homepage/static/media/code-light.d37f30940e3291235c6f.jpg",
+    "static/media/code-light.jpg": "/my-homepage/static/media/code-light.08866d9f3d2e85e66b0d.jpg",
     "static/media/harvard.png": "/my-homepage/static/media/harvard.bf439ea8f7230c3c385b.png",
     "static/media/memory.PNG": "/my-homepage/static/media/memory.5d0a8665031cb31e7e1b.PNG",
     "static/media/code-dark.jpg": "/my-homepage/static/media/code-dark.f36e2bc384b5edaee3bc.jpg",
@@ -21,9 +21,9 @@
     "static/media/dark.svg": "/my-homepage/static/media/dark.9745f4a1859f29588ba5727b7eb0162d.svg",
     "static/media/email.svg": "/my-homepage/static/media/email.6ac62bfa03e2a985535678e82ffed575.svg",
     "static/media/download.svg": "/my-homepage/static/media/download.f7ab357a000b38902028ca395fb084a4.svg",
-    "main.8cd9f7fc.js.map": "/my-homepage/static/js/main.8cd9f7fc.js.map"
+    "main.ba1d9f0c.js.map": "/my-homepage/static/js/main.ba1d9f0c.js.map"
   },
   "entrypoints": [
-    "static/js/main.8cd9f7fc.js"
+    "static/js/main.ba1d9f0c.js"
   ]
 }
