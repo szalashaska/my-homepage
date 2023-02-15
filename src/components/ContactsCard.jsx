@@ -22,9 +22,6 @@ const DownloadIco = styled(Download)``;
 
 const Link = styled(LinkStyled)`
   position: relative;
-  &:hover div {
-    opacity: 1;
-  }
 `;
 
 const Button = styled.button`
@@ -36,6 +33,7 @@ const Button = styled.button`
 `;
 
 const Info = styled.div`
+  min-width: 18ch;
   opacity: 0;
   text-decoration: none;
   font-size: clamp(0.8rem, 0.6737rem + 0.5614vw, 1.2rem);
@@ -44,13 +42,13 @@ const Info = styled.div`
   border-radius: 5px;
   color: var(--bg-clr);
   position: absolute;
-  min-width: 18ch;
   top: 90%;
   right: 50%;
   transform: translateX(50%);
   background: var(--font-clr);
   box-shadow: 0 0 10px rgba(230, 202, 202, 0.8);
-  transition: opacity 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  z-index: 0;
 
   &::before {
     content: "";
@@ -66,6 +64,7 @@ const Info = styled.div`
   ${Link}:hover &,
   ${Button}:hover & {
     opacity: 1;
+    z-index: 2;
   }
 `;
 
