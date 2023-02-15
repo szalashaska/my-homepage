@@ -10,7 +10,12 @@ import linkedLight from "../assets/linked-light.png";
 const transformSpeed = "0.35s";
 
 const Link = styled.a`
+  margin-top: 6rem;
+
   width: 15rem;
+  @media screen and (min-height: 415px) {
+    margin-top: 0;
+  }
 
   @media screen and (min-width: 850px) {
     width: 20rem;

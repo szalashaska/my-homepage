@@ -87,7 +87,7 @@ const AboutMe = () => {
           <Paragraph>
             After 5 years of experience in the field of Civil Engineering, where
             I was involved in design of various constructions, created detailed
-            3D BIM models, prepared documentation and drawings i realised that
+            3D BIM models, prepared documentation and drawings I realised that
             it just might not be it.
           </Paragraph>
 
@@ -107,8 +107,9 @@ const AboutMe = () => {
           <Heading2>Educational background</Heading2>
           <Paragraph>
             I obtained master's degree in Civil Engineering at Lodz University
-            of Technology. I took part in students exchange program "Erasmus" at
-            Instituto Superior de Engenharia de Lisboa, Portugal.
+            of Technology. While studying I took part in students exchange
+            program "Erasmus" at Instituto Superior de Engenharia de Lisboa,
+            Portugal.
           </Paragraph>
           <Paragraph>
             In years 2021 and 2022 I participated and completed Harvard's CS50
