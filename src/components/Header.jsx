@@ -33,7 +33,7 @@ const Header = () => {
       {inView && <AnimatedBackground />}
       <Container>
         <Avatar />
-        <Heading1 bold align="center">
+        <Heading1 bold align="center" mb="0">
           Hi! I am Kamil Petryniak
         </Heading1>
       </Container>
