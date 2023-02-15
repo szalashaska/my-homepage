@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/my-homepage/static/js/main.d378dd59.js",
-    "static/media/myself-removebg.png": "/my-homepage/static/media/myself-removebg.2db1f846208cb4664666.png",
+    "main.js": "/my-homepage/static/js/main.4245d4e8.js",
     "static/media/my-vertical.PNG": "/my-homepage/static/media/my-vertical.90cf1b31755d95d4981f.PNG",
-    "static/media/code-light.jpg": "/my-homepage/static/media/code-light.08866d9f3d2e85e66b0d.jpg",
     "static/media/harvard.png": "/my-homepage/static/media/harvard.bf439ea8f7230c3c385b.png",
     "static/media/memory.PNG": "/my-homepage/static/media/memory.5d0a8665031cb31e7e1b.PNG",
-    "static/media/code-dark.jpg": "/my-homepage/static/media/code-dark.f36e2bc384b5edaee3bc.jpg",
+    "static/media/code-light.jpg": "/my-homepage/static/media/code-light.669ebe0998db90f06b6d.jpg",
+    "static/media/code-dark.jpg": "/my-homepage/static/media/code-dark.3c10e8e7edf56bb0e09e.jpg",
+    "static/media/myself-removebg.png": "/my-homepage/static/media/myself-removebg.c25c50f9e1cf9520283b.png",
     "static/media/myself.jpg": "/my-homepage/static/media/myself.5e2071916ecee213798d.jpg",
     "static/media/music.PNG": "/my-homepage/static/media/music.67b60838724d898d6107.PNG",
     "static/media/countries.PNG": "/my-homepage/static/media/countries.a0027fb8c29f37c4ef29.PNG",
@@ -21,9 +21,9 @@
     "static/media/dark.svg": "/my-homepage/static/media/dark.9745f4a1859f29588ba5727b7eb0162d.svg",
     "static/media/email.svg": "/my-homepage/static/media/email.6ac62bfa03e2a985535678e82ffed575.svg",
     "static/media/download.svg": "/my-homepage/static/media/download.f7ab357a000b38902028ca395fb084a4.svg",
-    "main.d378dd59.js.map": "/my-homepage/static/js/main.d378dd59.js.map"
+    "main.4245d4e8.js.map": "/my-homepage/static/js/main.4245d4e8.js.map"
   },
   "entrypoints": [
-    "static/js/main.d378dd59.js"
+    "static/js/main.4245d4e8.js"
   ]
 }
