@@ -4,6 +4,8 @@ import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Linkedin } from "../assets/linkedin.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Download } from "../assets/download.svg";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 const Icon = styled.svg`
   fill: var(--font-clr);
@@ -20,8 +22,41 @@ const LinkedinIco = styled(Linkedin)``;
 const EmailIco = styled(Email)``;
 const DownloadIco = styled(Download)``;
 
+const Contacts = styled.div`
+  --depth-offset: -50px;
+  display: inline-block;
+  background-color: var(--bg-clr);
+  box-shadow: 0 0 8px #867272;
+  border-radius: 15px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(5000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+  }
+
+  &::after {
+    inset: -1rem;
+    background: linear-gradient(-45deg, red, blue);
+    transform: translateZ(var(--depth-offset));
+  }
+
+  &::before {
+    inset: 0.25rem;
+    background: var(--bg-clr);
+    transform: translateZ(calc(var(--depth-offset) + 1px));
+    filter: blur(15px);
+    opacity: 0.9;
+  }
+`;
+
 const Link = styled(LinkStyled)`
   position: relative;
+  transform: translateZ(100px);
 `;
 
 const Button = styled.button`
@@ -69,6 +104,8 @@ const Info = styled.div`
 `;
 
 const ContactsCard = () => {
+  const contactsRef = useRef();
+
   const handleButtonClick = () => {
     fetch("Petryniak_Kamil_CV.pdf").then((response) => {
       response.blob().then((blob) => {
@@ -83,8 +120,48 @@ const ContactsCard = () => {
     });
   };
 
+  function handleMouseMove(e) {
+    if (!contactsRef.current) return;
+
+    const maxRotateDeg = 40;
+    const x = e.pageX;
+    const y = e.pageY;
+    const offsetX = this.offsetLeft;
+    const offsetY = this.offsetTop;
+    const middleX = this.clientWidth / 2;
+    const middleY = this.clientHeight / 2;
+
+    const dx = ((x - offsetX - middleX) / middleX) * maxRotateDeg;
+    const dy = ((y - offsetY - middleY) / middleY) * maxRotateDeg;
+
+    contactsRef.current.style.setProperty("--rotateX", `${dy * -1}deg`);
+    contactsRef.current.style.setProperty("--rotateY", `${dx}deg`);
+  }
+
+  function handleMouseLeave() {
+    if (!contactsRef.current) return;
+    contactsRef.current.style.setProperty("--rotateX", "0deg");
+    contactsRef.current.style.setProperty("--rotateY", "0deg");
+  }
+
+  useEffect(() => {
+    let parentNode;
+    if (contactsRef.current) {
+      parentNode = contactsRef.current.parentNode.parentNode;
+      parentNode.addEventListener("mousemove", handleMouseMove);
+      parentNode.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (parentNode) {
+        parentNode.removeEventListener("mousemove", handleMouseMove);
+        parentNode.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
+
   return (
-    <div>
+    <Contacts ref={contactsRef}>
       <Link
         href="https://github.com/szalashaska"
         target="_blank"
@@ -124,7 +201,7 @@ const ContactsCard = () => {
         <Icon as={DownloadIco} />
         <Info>Download my CV</Info>
       </Button>
-    </div>
+    </Contacts>
   );
 };
 

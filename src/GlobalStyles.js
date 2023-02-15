@@ -113,6 +113,7 @@ export const Column = styled.div`
   width: 100%;
   min-height: 18rem;
   transition: all 1s;
+  /* border: 2px solid red; */
   @media screen and (min-width: 900px) {
     width: 50%;
   }
