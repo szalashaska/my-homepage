@@ -31,7 +31,6 @@ const Contacts = styled.div`
   position: relative;
   transform-style: preserve-3d;
   transform: perspective(5000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
-
   &::before,
   &::after {
     content: "";
@@ -51,6 +50,9 @@ const Contacts = styled.div`
     transform: translateZ(calc(var(--depth-offset) + 1px));
     filter: blur(15px);
     opacity: 0.9;
+  }
+  &.transition {
+    transition: transform 350ms ease-in-out;
   }
 `;
 
@@ -160,8 +162,14 @@ const ContactsCard = ({ parentContainer }) => {
 
   function handleMouseLeave() {
     if (!cardRef.current) return;
+    cardRef.current.classList.add("transition");
     cardRef.current.style.setProperty("--rotateX", "0deg");
     cardRef.current.style.setProperty("--rotateY", "0deg");
+  }
+
+  function handleMouseEnter() {
+    if (!cardRef.current) return;
+    cardRef.current.classList.remove("transition");
   }
 
   useEffect(() => {
@@ -169,11 +177,13 @@ const ContactsCard = ({ parentContainer }) => {
 
     parentContainer.addEventListener("mousemove", handleMouseMove);
     parentContainer.addEventListener("mouseleave", handleMouseLeave);
+    parentContainer.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
       if (parentContainer) {
         parentContainer.removeEventListener("mousemove", handleMouseMove);
         parentContainer.removeEventListener("mouseleave", handleMouseLeave);
+        parentContainer.removeEventListener("mouseenter", handleMouseEnter);
       }
     };
   }, [parentContainer]);
