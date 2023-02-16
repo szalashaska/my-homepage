@@ -17,7 +17,7 @@ const NavbarStyled = styled.nav`
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 10;
   transition: all 1s ease-out;
 `;
 
