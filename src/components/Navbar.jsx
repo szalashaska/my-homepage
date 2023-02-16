@@ -39,13 +39,13 @@ const List = styled.ul`
     left: 0;
     background: linear-gradient(
       to right,
-      rgba(255, 255, 51, 0.2),
-      rgba(204, 204, 255, 0.3),
-      rgba(255, 92, 51, 0.3),
-      var(--bg-clr) 25% 75%,
-      rgba(255, 92, 51, 0.3),
-      rgba(204, 204, 255, 0.3),
-      rgba(255, 255, 51, 0.2)
+      rgba(249, 249, 2, 0.65),
+      rgba(232, 65, 65, 0.85),
+      rgba(5, 117, 230, 0.95),
+      var(--bg-clr) 35% 65%,
+      rgba(5, 117, 230, 0.95),
+      rgba(232, 65, 65, 0.85),
+      rgba(249, 249, 2, 0.65)
     );
     z-index: -1;
     transition: opacity 0.5s linear;
@@ -64,12 +64,10 @@ const List = styled.ul`
       background: linear-gradient(
         -45deg,
         var(--bg-clr) 0% 40%,
-        rgba(255, 92, 51, 0.3),
-        rgba(255, 102, 179, 0.3),
-        rgba(204, 204, 255, 0.3),
-        rgba(179, 255, 255, 0.3),
-        rgba(128, 255, 128, 0.2),
-        rgba(255, 255, 51, 0.2)
+        rgba(128, 225, 255, 0.5),
+        rgba(5, 117, 230, 0.95),
+        rgba(232, 65, 65, 0.95),
+        rgba(249, 249, 2, 0.95)
       );
     }
 
@@ -81,14 +79,14 @@ const List = styled.ul`
       right: 0;
       bottom: 0;
       left: 0;
+
       background: linear-gradient(
         45deg,
         var(--bg-clr) 0% 45%,
-        rgba(255, 92, 51, 0.45),
-        rgba(255, 102, 179, 0.5),
-        rgba(179, 255, 255, 0.85),
-        rgba(128, 255, 128, 0.9),
-        rgba(255, 255, 51, 0.95)
+        rgba(128, 225, 255, 0.45),
+        rgba(5, 117, 230, 0.95),
+        rgba(232, 65, 65, 0.95),
+        rgba(249, 249, 2, 0.95)
       );
       z-index: -1;
       transition: opacity 0.5s linear;
