@@ -41,13 +41,13 @@ const Contacts = styled.div`
 
   &::after {
     inset: -1rem;
-    background: linear-gradient(-45deg, red, blue);
+    background: linear-gradient(-45deg, #0575e6, #e84141, #f9f902);
     transform: translateZ(var(--depth-offset));
   }
 
   &::before {
     inset: 0.25rem;
-    background: var(--bg-clr);
+    background: black;
     transform: translateZ(calc(var(--depth-offset) + 1px));
     filter: blur(15px);
     opacity: 0.9;
@@ -103,8 +103,8 @@ const Info = styled.div`
   }
 `;
 
-const ContactsCard = () => {
-  const contactsRef = useRef();
+const ContactsCard = ({ parentContainer }) => {
+  const cardRef = useRef();
 
   const handleButtonClick = () => {
     fetch("Petryniak_Kamil_CV.pdf").then((response) => {
@@ -121,47 +121,65 @@ const ContactsCard = () => {
   };
 
   function handleMouseMove(e) {
-    if (!contactsRef.current) return;
+    if (!cardRef.current) return;
 
-    const maxRotateDeg = 40;
+    const maxRotateDeg = 40; // Max angle (in degrees) that container will rotate
     const x = e.pageX;
     const y = e.pageY;
-    const offsetX = this.offsetLeft;
-    const offsetY = this.offsetTop;
-    const middleX = this.clientWidth / 2;
-    const middleY = this.clientHeight / 2;
 
-    const dx = ((x - offsetX - middleX) / middleX) * maxRotateDeg;
-    const dy = ((y - offsetY - middleY) / middleY) * maxRotateDeg;
+    // parentOffsetY would be need if card was always in the middle of parent X axis
+    // const parentOffsetX = this.offsetLeft;
+    const parentOffsetY = this.offsetTop;
+    let childOffsetX = cardRef.current.offsetLeft;
 
-    contactsRef.current.style.setProperty("--rotateX", `${dy * -1}deg`);
-    contactsRef.current.style.setProperty("--rotateY", `${dx}deg`);
+    const parentMiddleX = this.clientWidth / 2;
+    const parentMiddleY = this.clientHeight / 2;
+    const childMiddleX = cardRef.current.clientWidth / 2;
+
+    // If card is deep nested we need to calculate relative offset x
+    let parent = cardRef.current.parentNode;
+    while (parent !== this) {
+      childOffsetX += parent.offsetLeft;
+      parent = parent.parentNode;
+    }
+
+    // For card always in the middle axix
+    // ((x - parentOffsetX - parentMiddleX) / parentMiddleX) * maxRotateDeg;
+
+    // Card is not always in the middle of container axis X
+    const dx =
+      ((x - childOffsetX - childMiddleX) / parentMiddleX) * maxRotateDeg;
+
+    // Card is always in the middle of container axis Y
+    const dy =
+      ((y - parentOffsetY - parentMiddleY) / parentMiddleY) * maxRotateDeg;
+
+    cardRef.current.style.setProperty("--rotateX", `${dy * -1}deg`);
+    cardRef.current.style.setProperty("--rotateY", `${dx}deg`);
   }
 
   function handleMouseLeave() {
-    if (!contactsRef.current) return;
-    contactsRef.current.style.setProperty("--rotateX", "0deg");
-    contactsRef.current.style.setProperty("--rotateY", "0deg");
+    if (!cardRef.current) return;
+    cardRef.current.style.setProperty("--rotateX", "0deg");
+    cardRef.current.style.setProperty("--rotateY", "0deg");
   }
 
   useEffect(() => {
-    let parentNode;
-    if (contactsRef.current) {
-      parentNode = contactsRef.current.parentNode.parentNode;
-      parentNode.addEventListener("mousemove", handleMouseMove);
-      parentNode.addEventListener("mouseleave", handleMouseLeave);
-    }
+    if (!parentContainer) return;
+
+    parentContainer.addEventListener("mousemove", handleMouseMove);
+    parentContainer.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      if (parentNode) {
-        parentNode.removeEventListener("mousemove", handleMouseMove);
-        parentNode.removeEventListener("mouseleave", handleMouseLeave);
+      if (parentContainer) {
+        parentContainer.removeEventListener("mousemove", handleMouseMove);
+        parentContainer.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
-  }, []);
+  }, [parentContainer]);
 
   return (
-    <Contacts ref={contactsRef}>
+    <Contacts ref={cardRef}>
       <Link
         href="https://github.com/szalashaska"
         target="_blank"

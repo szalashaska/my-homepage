@@ -17,7 +17,7 @@ const Contacts = () => {
         <SectionTitle>Contacts</SectionTitle>
       </Column>
       <Column inView={inView}>
-        <ContactsCard />
+        <ContactsCard parentContainer={myRef.current} />
       </Column>
     </ContactsStyled>
   );
