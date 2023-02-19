@@ -27,6 +27,18 @@ const AnimatedBackgroundStyled = styled.canvas`
   z-index: 1;
 `;
 
+const FadeoutContainer = styled.div`
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-clr),
+    transparent ${(props) => (props.darkTheme ? "25% 75%" : "5% 95%")},
+    var(--bg-clr)
+  );
+`;
+
 const AnimatedBackground = () => {
   const animationRef = useRef(null);
   const canvasRef = useRef(null);
@@ -195,7 +207,12 @@ const AnimatedBackground = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [handleMouseMove]);
 
-  return <AnimatedBackgroundStyled ref={canvasRef} />;
+  return (
+    <>
+      <FadeoutContainer darkTheme={theme === "dark"} />
+      <AnimatedBackgroundStyled ref={canvasRef} />;
+    </>
+  );
 };
 
 export default AnimatedBackground;
