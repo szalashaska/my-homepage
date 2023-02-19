@@ -38,14 +38,12 @@ const List = styled.ul`
     bottom: 0;
     left: 0;
     background: linear-gradient(
-      to right,
+      60deg,
       rgba(249, 249, 2, 0.65),
       rgba(232, 65, 65, 0.85),
-      rgba(5, 117, 230, 0.95),
       var(--bg-clr) 35% 65%,
-      rgba(5, 117, 230, 0.95),
       rgba(232, 65, 65, 0.85),
-      rgba(249, 249, 2, 0.65)
+      rgba(5, 117, 230, 0.95)
     );
     z-index: -1;
     transition: opacity 0.5s linear;
