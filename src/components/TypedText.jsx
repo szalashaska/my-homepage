@@ -10,6 +10,11 @@ const TextContainer = styled.h1`
   position: relative;
   background: var(--text-bg);
 
+  // Hide everything for bigger screens
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
+
   &::before,
   &::after {
     content: "";
@@ -22,19 +27,24 @@ const TextContainer = styled.h1`
 
   &::before {
     background: var(--text-bg);
-    animation: typing ${(props) => props.duration}
-      steps(${(props) => props.textLength}) ${(props) => props.showDelay}
-      forwards;
+    ${(props) =>
+      props.inView &&
+      `
+    animation: typing ${props.duration} steps(${props.textLength}) ${props.showDelay} forwards;
+      `}
   }
 
   &::after {
     width: 0.125em;
     background: var(--text-clr);
     opacity: 1;
-    animation: blink ${(props) => props.blinkSpeed}
-        steps(${(props) => props.textLength}) infinite,
-      typing ${(props) => props.duration} steps(${(props) => props.textLength})
-        ${(props) => props.showDelay} forwards;
+
+    ${(props) =>
+      props.inView &&
+      `
+    animation: blink ${props.blinkSpeed} steps(${props.textLength}) infinite,
+      typing ${props.duration} steps(${props.textLength}) ${props.showDelay} forwards;
+     `}
   }
 
   @keyframes typing {
@@ -51,15 +61,16 @@ const TextContainer = styled.h1`
 `;
 
 const TypedText = ({
+  inView,
   text,
   duration = 2,
   blinkSpeed = 0.7,
   showDelay = 0.75,
 }) => {
   const { length } = text;
-  console.log(length);
   return (
     <TextContainer
+      inView={inView}
       textLength={length}
       duration={`${duration}s`}
       blinkSpeed={`${blinkSpeed}s`}

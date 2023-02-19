@@ -126,10 +126,3 @@ export const Column = styled.div`
 `;
 
 export const Wrapper = styled.div``;
-
-export const SectionTitle = styled(Heading1)`
-  text-align: center;
-  @media screen and (min-width: 700px) {
-    display: none;
-  }
-`;

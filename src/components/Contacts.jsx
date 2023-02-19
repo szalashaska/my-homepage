@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { Column, Section, SectionTitle } from "../GlobalStyles";
+import { Column, Section } from "../GlobalStyles";
 
 import useInView from "../hooks/useInView";
 import AnimatedText from "./AnimatedText";
 import ContactsCard from "./ContactsCard";
+import TypedText from "./TypedText";
 
 const ContactsStyled = styled(Section)``;
 
@@ -14,7 +15,7 @@ const Contacts = () => {
     <ContactsStyled id="contacts" ref={myRef}>
       <Column inView={true}>
         {inView && <AnimatedText text={"Contacts"} aria-label="Contacts" />}
-        <SectionTitle>Contacts</SectionTitle>
+        <TypedText text={"Contacts."} inView={inView} />
       </Column>
       <Column inView={inView}>
         <ContactsCard parentContainer={myRef.current} />

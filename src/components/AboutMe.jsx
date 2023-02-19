@@ -5,13 +5,13 @@ import {
   LinkStyled,
   Paragraph,
   Section,
-  SectionTitle,
   Wrapper,
 } from "../GlobalStyles";
 
 import harvard from "../assets/harvard.png";
 import useInView from "../hooks/useInView";
 import AnimatedText from "./AnimatedText";
+import TypedText from "./TypedText";
 
 const AbouteMeStyled = styled(Section)``;
 
@@ -74,7 +74,7 @@ const AboutMe = () => {
     <AbouteMeStyled id="about-me" ref={myRef}>
       <Column inView={true}>
         {inView && <AnimatedText text={"About me"} aria-label="Projects" />}
-        <SectionTitle>About me</SectionTitle>
+        <TypedText text={"About me."} inView={inView} />
       </Column>
       <Column inView={inView}>
         <Wrapper>

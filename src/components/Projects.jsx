@@ -52,7 +52,7 @@ const Projects = () => {
 
       <Column inView={true}>
         {inView && <AnimatedText text={"Projects"} aria-label="Projects" />}
-        <TypedText text={"Projects."} />
+        <TypedText text={"Projects."} inView={inView} />
       </Column>
     </ProjectsStyled>
   );
