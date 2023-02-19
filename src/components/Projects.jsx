@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Column, Heading2, Section, SectionTitle } from "../GlobalStyles";
+import { Column, Heading2, Section } from "../GlobalStyles";
 import Card from "./Card";
 import useInView from "../hooks/useInView";
 import AnimatedText from "./AnimatedText";
 import Carusel, { CaruselItem } from "./Carusel";
 import { projectCards } from "../helpers/cardsData";
+import TypedText from "./TypedText";
 
 const ProjectsStyled = styled(Section)`
   flex-direction: column-reverse;
@@ -51,7 +52,7 @@ const Projects = () => {
 
       <Column inView={true}>
         {inView && <AnimatedText text={"Projects"} aria-label="Projects" />}
-        <SectionTitle>Projects</SectionTitle>
+        <TypedText text={"Projects."} />
       </Column>
     </ProjectsStyled>
   );
