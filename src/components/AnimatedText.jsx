@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback, useContext } from "react";
 import ThemeContext from "../contexts/ThemeContext";
-
+import { debounce } from "../helpers/utils";
 import styled from "styled-components";
 
 const darkColor = [255, 255, 255];
@@ -26,7 +26,6 @@ const AnimatedTextStyled = styled.canvas`
 
 const AnimatedText = ({ text }) => {
   const animationRef = useRef(null);
-  const observerRef = useRef(null);
   const canvasRef = useRef(null);
   const canvasRectRef = useRef(null);
   const mouseRef = useRef({
@@ -232,16 +231,16 @@ const AnimatedText = ({ text }) => {
 
   useEffect(() => {
     initiateAnimation();
+    let observer;
 
     if (canvasRef.current) {
-      // let observer;
-      observerRef.current = new ResizeObserver(initiateAnimation).observe(
+      observer = new ResizeObserver(debounce(initiateAnimation, 150)).observe(
         canvasRef.current.parentNode
       );
 
       return () => {
         // Delete observer and cancel animiation
-        if (observerRef.current) observerRef.current.disconnect();
+        if (observer) observer.disconnect();
         if (animationRef.current) cancelAnimationFrame(animationRef.current);
       };
     }
