@@ -55,6 +55,8 @@ const AnimatedText = ({ text }) => {
   const initiateAnimation = useCallback(() => {
     if (!canvasRef.current) return;
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    // Do not draw on the canvas for small screens
+    if (window.innerWidth < 700) return;
 
     class Particle {
       constructor(x, y) {
@@ -110,98 +112,111 @@ const AnimatedText = ({ text }) => {
       }
     }
 
+    class ParticleEffect {
+      constructor(ctx, width, height, canvasWidth, canvasHeight) {
+        this.ctx = ctx;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.gap = 10;
+        this.particleArray = [];
+
+        // Responsive settings
+        if (width < 350) {
+          this.fontSize = "1em";
+          this.thresholdConnectionDistance = 400;
+        } else if (350 <= width && width < 600) {
+          this.thresholdConnectionDistance = 500;
+          this.fontSize = "4.5rem";
+        } else {
+          this.thresholdConnectionDistance = 700;
+          this.fontSize = "7rem";
+        }
+
+        this.ctx.font = `bold ${this.fontSize} Verdana`;
+        this.ctx.fillStyle = "white";
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillText(text, width / 2, height / 2);
+
+        // Scan for data with getImageData(coordiantes)
+        this.textCoords = this.ctx.getImageData(0, 0, width, height);
+        this.init();
+      }
+
+      init() {
+        this.particleArray = [];
+        // textCoords array is capped 30% from both sides, since there is no text there
+        for (
+          let y = Math.floor(this.textCoords.height * 0.3),
+            y2 = Math.floor(this.textCoords.height * 0.7);
+          y < y2;
+          y += this.gap
+        ) {
+          for (let x = 0, x2 = this.textCoords.width; x < x2; x += this.gap) {
+            // Opacity of element is more than 50% (256 / 2 = 128)
+            if (
+              this.textCoords.data[y * 4 * this.textCoords.width + x * 4 + 3] >
+              128
+            ) {
+              let positionX = x;
+              let positionY = y;
+              this.particleArray.push(new Particle(positionX, positionY));
+            }
+          }
+        }
+      }
+
+      connect() {
+        let oppacityValue = 1;
+        for (let a = 0; a < this.particleArray.length; a++) {
+          for (let b = a; b < this.particleArray.length; b++) {
+            // calculate distance between every particle in array, a = b to prevent unnecessary calculation
+            let dx = this.particleArray[a].x - this.particleArray[b].x;
+            let dy = this.particleArray[a].y - this.particleArray[b].y;
+            let distance = dx * dx + dy * dy;
+
+            if (distance < this.thresholdConnectionDistance) {
+              // Connect particles
+              oppacityValue = 1 - distance / this.thresholdConnectionDistance;
+              this.ctx.strokeStyle = `rgba(${colorTheme[0]}, ${colorTheme[1]}, ${colorTheme[2]}, ${oppacityValue})`;
+              this.ctx.lineWidth = 1;
+              this.ctx.beginPath();
+              this.ctx.moveTo(this.particleArray[a].x, this.particleArray[a].y);
+              this.ctx.lineTo(this.particleArray[b].x, this.particleArray[b].y);
+              this.ctx.stroke();
+            }
+          }
+        }
+      }
+
+      animate() {
+        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        for (let i = 0; i < this.particleArray.length; i++) {
+          this.particleArray[i].draw();
+          this.particleArray[i].update();
+        }
+        this.connect();
+        animationRef.current = requestAnimationFrame(this.animate.bind(this));
+      }
+    }
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
-
-    // Do not draw on the canvas for small screens
-    if (window.innerWidth < 700) return;
 
     canvas.width = canvasRef.current.parentNode.clientWidth;
     canvas.height = canvasRef.current.parentNode.clientHeight;
     const width = canvas.width;
     const height = canvas.height;
 
-    // Responsive settings
-    let fontSize;
-    const gap = 10;
-    let thresholdConnectionDistance;
-    if (width < 350) {
-      fontSize = "1em";
-      thresholdConnectionDistance = 400;
-    } else if (350 <= width && width < 600) {
-      thresholdConnectionDistance = 500;
-      fontSize = "4.5rem";
-    } else {
-      thresholdConnectionDistance = 700;
-      fontSize = "7rem";
-    }
+    const particles = new ParticleEffect(
+      ctx,
+      width,
+      height,
+      canvas.width,
+      canvas.height
+    );
 
-    let particleArray = [];
-    ctx.font = `bold ${fontSize} Verdana`;
-    ctx.fillStyle = "white";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(text, width / 2, height / 2);
-
-    // Scan for data with getImageData(coordiantes)
-    const textCoords = ctx.getImageData(0, 0, width, height);
-    // Area that we are scanning
-
-    const init = () => {
-      particleArray = [];
-      // textCoords array is capped 30% from both sides, since there is no text there
-      for (
-        let y = Math.floor(textCoords.height * 0.3),
-          y2 = Math.floor(textCoords.height * 0.7);
-        y < y2;
-        y += gap
-      ) {
-        for (let x = 0, x2 = textCoords.width; x < x2; x += gap) {
-          // Opacity of element is more than 50% (256 / 2 = 128)
-          if (textCoords.data[y * 4 * textCoords.width + x * 4 + 3] > 128) {
-            let positionX = x;
-            let positionY = y;
-            particleArray.push(new Particle(positionX, positionY));
-          }
-        }
-      }
-    };
-
-    const connect = () => {
-      let oppacityValue = 1;
-      for (let a = 0; a < particleArray.length; a++) {
-        for (let b = a; b < particleArray.length; b++) {
-          // calculate distance between every particle in array, a = b to prevent unnecessary calculation
-          let dx = particleArray[a].x - particleArray[b].x;
-          let dy = particleArray[a].y - particleArray[b].y;
-          let distance = dx * dx + dy * dy;
-
-          if (distance < thresholdConnectionDistance) {
-            // Connect particles
-            oppacityValue = 1 - distance / thresholdConnectionDistance;
-            ctx.strokeStyle = `rgba(${colorTheme[0]}, ${colorTheme[1]}, ${colorTheme[2]}, ${oppacityValue})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particleArray[a].x, particleArray[a].y);
-            ctx.lineTo(particleArray[b].x, particleArray[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-    const animate = () => {
-      // Clear canvas before each animation
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particleArray.length; i++) {
-        particleArray[i].draw();
-        particleArray[i].update();
-      }
-      connect();
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    init();
-    animate();
+    particles.animate();
     updateCanvasCoordinates();
   }, [text, colorTheme]);
 
