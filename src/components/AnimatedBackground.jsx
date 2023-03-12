@@ -90,7 +90,7 @@ const AnimatedBackground = () => {
         } else if (1400 <= width && width < 2000) {
           this.cellSize = 24;
           this.lengthVariable = 0.000095;
-        } else if (2000 <= width) {
+        } else if (2000 <= width && width < 2750) {
           this.cellSize = 26;
           this.lengthVariable = 0.0001;
         } else {
