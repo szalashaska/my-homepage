@@ -38,14 +38,11 @@ const AnimatedText = ({ text }) => {
 
   const colorTheme = theme === "dark" ? darkColor : brightColor;
 
-  const handleMouseMove = useCallback(
-    (e) => {
-      if (window.innerWidth < 700) return;
-      mouseRef.current.x = e.pageX - canvasRectRef.current.dx;
-      mouseRef.current.y = e.pageY - canvasRectRef.current.dy;
-    },
-    [mouseRef]
-  );
+  const handleMouseMove = (e) => {
+    if (window.innerWidth < 700) return;
+    mouseRef.current.x = e.pageX - canvasRectRef.current.dx;
+    mouseRef.current.y = e.pageY - canvasRectRef.current.dy;
+  };
 
   const handleMouseLeave = () => {
     mouseRef.current.x = -200;
@@ -167,7 +164,7 @@ const AnimatedText = ({ text }) => {
       }
 
       connect() {
-        let oppacityValue = 1;
+        let oppacityValue;
         for (let a = 0; a < this.particleArray.length; a++) {
           for (let b = a; b < this.particleArray.length; b++) {
             // calculate distance between every particle in array, a = b to prevent unnecessary calculation
@@ -222,7 +219,6 @@ const AnimatedText = ({ text }) => {
 
   const updateCanvasCoordinates = () => {
     // Updates Canvas coordinates, allows delay to scroll and zoom image
-
     const boundingRect = canvasRef.current.getBoundingClientRect();
     let x;
     let y;
@@ -245,9 +241,7 @@ const AnimatedText = ({ text }) => {
   };
 
   useEffect(() => {
-    initiateAnimation();
     let observer;
-
     if (canvasRef.current) {
       observer = new ResizeObserver(debounce(initiateAnimation, 150)).observe(
         canvasRef.current.parentNode

@@ -186,14 +186,11 @@ const AnimatedBackground = () => {
   }, [colorGradient]);
 
   useEffect(() => {
-    initiateAnimation();
-
+    let observer;
     if (canvasRef.current) {
-      let observer;
       observer = new ResizeObserver(initiateAnimation).observe(
         canvasRef.current.parentNode
       );
-
       return () => {
         // Delete observer and cancel animiation
         if (observer) observer.disconnect();
@@ -209,7 +206,10 @@ const AnimatedBackground = () => {
 
   return (
     <>
-      <FadeoutContainer darkTheme={theme === "dark"} />
+      <FadeoutContainer
+        darkTheme={theme === "dark"}
+        onMouseMove={handleMouseMove}
+      />
       <AnimatedBackgroundStyled ref={canvasRef} />;
     </>
   );
