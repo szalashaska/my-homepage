@@ -14,6 +14,25 @@ const Wrapper = styled.div`
     width: 100%;
     min-height: 30rem;
     font-size: 7rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 101;
+      background: linear-gradient(
+          to bottom,
+          var(--bg-clr),
+          transparent 25% 75%,
+          var(--bg-clr)
+        ),
+        linear-gradient(
+          to right,
+          var(--bg-clr),
+          transparent 15% 85%,
+          var(--bg-clr)
+        );
+    }
   }
 `;
 
@@ -256,12 +275,8 @@ const AnimatedText = ({ text }) => {
   }, [initiateAnimation]);
 
   return (
-    <Wrapper>
-      <AnimatedTextStyled
-        ref={canvasRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      />
+    <Wrapper onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+      <AnimatedTextStyled ref={canvasRef} />
     </Wrapper>
   );
 };
